@@ -15,5 +15,4 @@ export class Game {
 	}
 }
 
-const game = new Game();
-export default game;
+export default new Game();
