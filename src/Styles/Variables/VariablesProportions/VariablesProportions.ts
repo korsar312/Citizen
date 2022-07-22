@@ -1,1 +1,3 @@
-export class VariablesProportions {}
+export class VariablesProportions {
+	transition = "0.5s ease-in-out";
+}
