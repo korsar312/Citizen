@@ -4,6 +4,7 @@ import styles from "./Text.styles";
 import { LanguageInterface } from "../../../Logic/Modules/Language/Language.interface";
 import modules from "../../../Logic/Modules";
 import { variablesFontsInterface } from "../../../Styles/Variables/VariablesFonts/VariablesFonts.interface";
+import { observer } from "mobx-react";
 
 interface IText {
 	text: TText;
@@ -42,7 +43,7 @@ const Text: FC<IText> = (props) => {
 		}
 	};
 
-	return <span css={[styles.color(color), styles.font(font)]}>{wordTranslate(text)}</span>;
+	return <span css={[styles.wrapper, styles.color(color), styles.font(font)]}>{wordTranslate(text)}</span>;
 };
 
-export default Text;
+export default observer(Text);

@@ -10,9 +10,9 @@ export class VariablesColors {
 	 * @param hex - формата цвета HEX
 	 * @param opacity - прозрачность
 	 */
-	private hex2rgba = (hex: string, opacity = 1) => {
+	private hex2rgba = (hex: string, opacity: number) => {
 		const RGB = String(hex.match(/\w\w/g)?.map((x) => parseInt(x, 16)));
-		return `rgba(${RGB}, ${opacity})`;
+		return `rgba(${RGB},${opacity})`;
 	};
 
 	/**

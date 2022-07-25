@@ -12,10 +12,22 @@ export namespace LanguageInterface {
 	}
 
 	/**
+	 * Список слов дней недели
+	 */
+	export enum ELanguageDayOfTheWeekWord {
+		ESD = "ESD",
+		SHR = "SHR",
+		MOS = "MOS",
+		SHM = "SHM",
+		FLD = "FLD",
+	}
+
+	/**
 	 * Список всех слов
 	 */
 	export const allLanguageWord = {
 		...ELanguageSimpleWord,
+		...ELanguageDayOfTheWeekWord,
 	};
 
 	export type TAllLanguageWord = keyof typeof allLanguageWord;

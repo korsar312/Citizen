@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./GamePage.styles";
-import ContentWrapper from "../../Components/1.Atoms/ContentWrapper/ContentWrapper";
+import Calendar from "../../Components/3.Substances/Calendar/Calendar";
 
 const GamePage = () => {
 	return (
 		<div css={styles.wrapper}>
-			<ContentWrapper />
+			<Calendar />
 		</div>
 	);
 };

@@ -10,13 +10,13 @@ export const VariablesFont: variablesFontsInterface.TFont = {
 			fontSize: 65,
 		},
 		BIG: {
-			fontSize: 40,
+			fontSize: 35,
 		},
 		BODY: {
-			fontSize: 25,
+			fontSize: 20,
 		},
 		SMALL: {
-			fontSize: 15,
+			fontSize: 13,
 		},
 	},
 

@@ -4,6 +4,10 @@ import { variablesColorsInterface } from "../../../Styles/Variables/VariablesCol
 import { variablesFontsInterface } from "../../../Styles/Variables/VariablesFonts/VariablesFonts.interface";
 
 class TextStyles extends Styles {
+	public wrapper: CSSObject = {
+		transition: this.variablesProportions.transition,
+	};
+
 	public color(colors: variablesColorsInterface.TColorChoice) {
 		return {
 			color: this.variablesColors.getColor(colors),
