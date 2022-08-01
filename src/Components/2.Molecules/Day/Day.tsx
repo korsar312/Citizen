@@ -19,10 +19,10 @@ const Day: FC<IDay> = (props) => {
 	return (
 		<div css={styles.wrapper}>
 			<div>
-				<Text text={"THU"} font={{ fontSize: "SMALL", fontWeight: "NORMAL" }} />
+				<Text text={date.weekDay} font={{ fontSize: "SMALL", fontWeight: "NORMAL" }} />
 			</div>
 			<div>
-				<Text text={"23"} font={{ fontSize: "BODY", fontWeight: "NORMAL" }} />
+				<Text text={date.numberDay} font={{ fontSize: "BODY", fontWeight: "NORMAL" }} />
 			</div>
 			<div>{date.icon && <Text text={"*"} font={{ fontSize: "SMALL", fontWeight: "NORMAL" }} />}</div>
 		</div>

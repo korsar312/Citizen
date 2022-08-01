@@ -1,6 +1,7 @@
 import { LanguageInterface } from "./Language.interface";
 
 export const dictionary: LanguageInterface.TLanguage = {
+
 	ESD: {
 		EN: "Day of Endless Darkness",
 		RU: "День Бескрайней Темноты",

@@ -24,12 +24,15 @@ const Text: FC<IText> = (props) => {
 		caseWord,
 	} = props;
 
-	const wordTranslate = (word: TText): string => {
-		const wordTranslate = String(
+	const localization = (word: TText) =>
+		String(
 			word in LanguageInterface.allLanguageWord
 				? modules.language.service.getText(word as LanguageInterface.TAllLanguageWord)
 				: word,
 		);
+
+	const wordTranslate = (word: TText): string => {
+		const wordTranslate = localization(word);
 
 		if (caseWord) {
 			switch (caseWord) {
