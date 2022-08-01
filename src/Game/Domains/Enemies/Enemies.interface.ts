@@ -1,3 +1,1 @@
-export namespace enemiesInterface {
-
-}
+export namespace EnemiesInterface {}

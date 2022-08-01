@@ -15,4 +15,13 @@ export namespace typesUtils {
 	type TKey<obj> = {
 		[T in keyof obj]: obj[T];
 	};
+
+	/**
+	 * Тип для диапазона значений типа (от 20 до 30 (type T = NumberRange<20, 31>) )
+	 */
+	export type NumberRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>;
+
+	type Enumerate<N extends number, Acc extends number[] = []> = Acc["length"] extends N
+		? Acc[number]
+		: Enumerate<N, [...Acc, Acc["length"]]>;
 }

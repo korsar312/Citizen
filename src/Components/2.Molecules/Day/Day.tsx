@@ -1,20 +1,20 @@
 import React, { FC } from "react";
 import styles from "./Day.styles";
 import Text from "../../0.Cores/Text/Text";
-import { LanguageInterface } from "../../../Logic/Modules/Language/Language.interface";
+import { TimesInterface } from "../../../Game/Domains/Times/Times.interface";
 
 interface IDay {
 	date: IDay_TDay;
 }
 
 export type IDay_TDay = {
-	weekDay: LanguageInterface.ELanguageDayOfTheWeekWord;
+	weekDay: TimesInterface.EDayOfTheWeekWord;
 	numberDay: number;
 	icon?: SVGElement;
 };
 
 const Day: FC<IDay> = (props) => {
-	const {} = props;
+	const { date } = props;
 
 	return (
 		<div css={styles.wrapper}>
@@ -24,9 +24,7 @@ const Day: FC<IDay> = (props) => {
 			<div>
 				<Text text={"23"} font={{ fontSize: "BODY", fontWeight: "NORMAL" }} />
 			</div>
-			<div>
-				<Text text={"*"} font={{ fontSize: "SMALL", fontWeight: "NORMAL" }} />
-			</div>
+			<div>{date.icon && <Text text={"*"} font={{ fontSize: "SMALL", fontWeight: "NORMAL" }} />}</div>
 		</div>
 	);
 };

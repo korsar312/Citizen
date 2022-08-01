@@ -1,7 +1,10 @@
-import { Game } from "../Game";
-import { injectionsInterface } from "./Injections.interface";
+import { InjectionsInterface } from "./Injections.Interface";
 
-class Injections extends Game implements injectionsInterface.IInjections {
+class Injections implements InjectionsInterface.IInjections {
+	private enemies = null;
+	private events = null;
+	private items = null;
+
 	public getEnemies() {
 		return this.enemies;
 	}
@@ -13,5 +16,4 @@ class Injections extends Game implements injectionsInterface.IInjections {
 	}
 }
 
-const injections = new Injections();
-export default injections;
+export default new Injections();

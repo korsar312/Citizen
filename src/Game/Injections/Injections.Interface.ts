@@ -1,4 +1,4 @@
-export namespace injectionsInterface {
+export namespace InjectionsInterface {
 	export interface IInjections {
 		getEnemies(): any;
 		getEvents(): any;

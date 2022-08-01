@@ -1,18 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import styles from "./Calendar.styles";
 import ContentWrapper from "../../1.Atoms/ContentWrapper/ContentWrapper";
-import Day from "../../2.Molecules/Day/Day";
-import { LanguageInterface } from "../../../Logic/Modules/Language/Language.interface";
+import game from "../../../Game/Game";
 
-interface ICalendar {}
+const Calendar: FC = () => {
+	const currentDay = game.times.getNameCurrentDay();
 
-const Calendar: FC<ICalendar> = (props) => {
-	const {} = props;
+	const week = game.times.getWeek();
+
+	console.log(week);
 
 	return (
 		<ContentWrapper>
 			<div css={styles.wrapper}>
-				<Day date={{ numberDay: 21, weekDay: LanguageInterface.ELanguageDayOfTheWeekWord.ESD }} />
+				{/*<Day date={{ numberDay: 21, weekDay: LanguageInterface.ELanguageDayOfTheWeekWord.ESD }} />*/}
 			</div>
 		</ContentWrapper>
 	);

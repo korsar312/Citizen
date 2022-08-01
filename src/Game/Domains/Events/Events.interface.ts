@@ -1,1 +1,1 @@
-export namespace eventsInterface {}
+export namespace EventsInterface {}

@@ -7,7 +7,7 @@ class ContentWrapperStyles extends Styles {
 
 	public wrapper: CSSObject = {
 		padding: 25,
-		borderRadius: 20,
+		borderRadius: this.variablesProportions.radius,
 		transition: this.variablesProportions.transition,
 		margin: `${this.border}px`,
 	};

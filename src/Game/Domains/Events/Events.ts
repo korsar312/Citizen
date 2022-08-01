@@ -1,10 +1,9 @@
-import {injectionsInterface} from "../../Injections/Injections.interface";
+import { InjectionsInterface } from "../../Injections/Injections.Interface";
 
 export class Events {
-	private injection: injectionsInterface.IInjections;
+	private injection: InjectionsInterface.IInjections;
 
-	constructor(injections: injectionsInterface.IInjections) {
+	constructor(injections: InjectionsInterface.IInjections) {
 		this.injection = injections;
 	}
-
 }

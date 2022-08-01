@@ -1,1 +1,1 @@
-export namespace itemsInterface {}
+export namespace ItemsInterface {}
