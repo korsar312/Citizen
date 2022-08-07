@@ -19,6 +19,8 @@ export namespace LanguageInterface {
 	export const allLanguageWord = {
 		...ELanguageSimpleWord,
 		...TimesInterface.EDayOfTheWeekWord,
+		...TimesInterface.EWeekWord,
+		...TimesInterface.EMonthWord,
 	};
 
 	export type TAllLanguageWord = keyof typeof allLanguageWord;

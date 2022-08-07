@@ -1,7 +1,26 @@
 import { LanguageInterface } from "./Language.interface";
 
 export const dictionary: LanguageInterface.TLanguage = {
-
+	GFH: {
+		EN: "121212",
+		RU: "121212",
+	},
+	GHJ: {
+		EN: "121212",
+		RU: "121212",
+	},
+	LFG: {
+		EN: "121212",
+		RU: "121212",
+	},
+	TES: {
+		EN: "121212",
+		RU: "121212",
+	},
+	TYU: {
+		EN: "121212",
+		RU: "121212",
+	},
 	ESD: {
 		EN: "Day of Endless Darkness",
 		RU: "День Бескрайней Темноты",

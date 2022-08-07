@@ -6,18 +6,29 @@ export namespace TimesInterface {
 	 * минут в часах || часов в дне || вней в неделе || недель в месяце || месяцев в году
 	 */
 	export type TFullDate = {
-		minute: typesUtils.NumberRange<0, 59>;
-		hours: typesUtils.NumberRange<0, 23>;
+		minute: typesUtils.NumberRange<0, 61>;
+		hour: typesUtils.NumberRange<0, 25>;
 		day: typesUtils.NumberRange<1, 6>;
 		week: typesUtils.NumberRange<1, 7>;
 		month: typesUtils.NumberRange<1, 11>;
-		years: number;
+		year: number;
 	};
 
 	/**
 	 * Список дней недели
 	 */
 	export enum EDayOfTheWeekWord {
+		ESD = "ESD",
+		SHR = "SHR",
+		MOS = "MOS",
+		SHM = "SHM",
+		FLD = "FLD",
+	}
+
+	/**
+	 * Список недель
+	 */
+	export enum EWeekWord {
 		ESD = "ESD",
 		SHR = "SHR",
 		MOS = "MOS",
@@ -42,5 +53,6 @@ export namespace TimesInterface {
 	}
 
 	export type TListDays = Record<TimesInterface.TFullDate["day"], TimesInterface.EDayOfTheWeekWord>;
+	export type TListWeeks = Record<TimesInterface.TFullDate["week"], TimesInterface.EWeekWord>;
 	export type TListMonth = Record<TimesInterface.TFullDate["month"], TimesInterface.EMonthWord>;
 }

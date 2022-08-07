@@ -3,11 +3,11 @@ import { RepositoryInterface } from "./Repository.interface";
 class Repository {
 	private save: RepositoryInterface.TSave = {
 		date: {
-			years: 1000,
+			year: 1000,
 			day: 4,
 			week: 5,
 			minute: 45,
-			hours: 12,
+			hour: 12,
 			month: 10,
 		},
 	};
@@ -15,6 +15,7 @@ class Repository {
 	setSave(save: RepositoryInterface.TSave) {
 		this.save = save;
 	}
+
 	getSave() {
 		return this.save;
 	}
