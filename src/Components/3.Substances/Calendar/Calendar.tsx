@@ -5,8 +5,8 @@ import game from "../../../Game/Game";
 import Day from "../../2.Molecules/Day/Day";
 
 const Calendar: FC = () => {
-	const currentDay = game.times.getNameCurrentDay();
-	const week = game.times.getDays();
+	const currentDay = game.times.store.getNameCurrentDay();
+	const week = game.times.store.getDays();
 
 	return (
 		<ContentWrapper>

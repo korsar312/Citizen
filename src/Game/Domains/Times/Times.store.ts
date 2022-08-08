@@ -2,9 +2,10 @@ import { TimesInterface } from "./Times.interface";
 import { numberMonth } from "./Calendar/Month";
 import { numberDayOfTheWeek } from "./Calendar/Day";
 import { numberWeek } from "./Calendar/Week";
+import { defaultTimes } from "./Setting/DefaultTimes";
 
-export class Times {
-	private date: TimesInterface.TFullDate;
+export class TimesStore {
+	private date: TimesInterface.TFullDate = defaultTimes;
 
 	private listDate = {
 		day: numberDayOfTheWeek,
@@ -12,16 +13,7 @@ export class Times {
 		month: numberMonth,
 	};
 
-	constructor(date: TimesInterface.TFullDate) {
-		this.date = {
-			minute: date.minute,
-			hour: date.hour,
-			day: date.day,
-			week: date.week,
-			month: date.month,
-			year: date.year,
-		};
-	}
+	constructor() {}
 
 	private addHours() {
 		this.date.hour = this.addCount(this.date.hour, 24, this.addDay) as TimesInterface.TFullDate["hour"];
