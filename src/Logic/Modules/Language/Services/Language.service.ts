@@ -1,6 +1,6 @@
 import { dictionary } from "../Language.dictionary";
 import { LanguageInterface } from "../Language.interface";
-import modules from "../../../Modules";
+import modules from "../../Modules";
 
 export class LanguageService {
 	private readonly language: LanguageInterface.TLanguage = dictionary;

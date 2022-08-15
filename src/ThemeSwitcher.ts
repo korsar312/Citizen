@@ -8,6 +8,7 @@ body.style.background = styles.background();
 
 export const ThemeSwitcher = observer(() => {
 	useEffect(() => {
+		//если я накину трансишн сразу, то при старте будет смена темы со светлой на темную (если поставлена темная)
 		body.style.transition = styles.transition();
 	}, []);
 	body.style.background = styles.background();

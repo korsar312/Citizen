@@ -2,15 +2,19 @@ import React, { FC } from "react";
 import { variablesColorsInterface } from "../../../Styles/Variables/VariablesColors/VariablesColors.interface";
 import styles from "./Text.styles";
 import { LanguageInterface } from "../../../Logic/Modules/Language/Language.interface";
-import modules from "../../../Logic/Modules";
+import modules from "../../../Logic/Modules/Modules";
 import { variablesFontsInterface } from "../../../Styles/Variables/VariablesFonts/VariablesFonts.interface";
 import { observer } from "mobx-react";
+import { ComponentsInterface } from "../../Components.interface";
+import libs from "../../../Logic/Libs/Libs";
 
 interface IText {
 	text: TText;
 	color?: variablesColorsInterface.TColorChoice;
 	font?: variablesFontsInterface.TFontChoice;
 	caseWord?: TModeReturnWord;
+	noLocalization?: boolean;
+	extStyle?: ComponentsInterface.TDeepCSSObject;
 }
 
 type TText = LanguageInterface.TAllLanguageWord | string | number;
@@ -22,6 +26,8 @@ const Text: FC<IText> = (props) => {
 		color = { color: "NEUTRAL", shard: "NEUTRAL_1" },
 		font = { fontSize: "BODY", fontWeight: "NORMAL" },
 		caseWord,
+		noLocalization,
+		extStyle,
 	} = props;
 
 	const localization = (word: TText) =>
@@ -32,7 +38,7 @@ const Text: FC<IText> = (props) => {
 		);
 
 	const wordTranslate = (word: TText): string => {
-		const wordTranslate = localization(word);
+		const wordTranslate = noLocalization ? String(word) : localization(word);
 
 		if (caseWord) {
 			switch (caseWord) {
@@ -46,7 +52,11 @@ const Text: FC<IText> = (props) => {
 		}
 	};
 
-	return <span css={[styles.wrapper, styles.color(color), styles.font(font)]}>{wordTranslate(text)}</span>;
+	return (
+		<span css={[styles.wrapper, styles.color(color), styles.font(font), ...libs.utils.getArray(extStyle)]}>
+			{wordTranslate(text)}
+		</span>
+	);
 };
 
 export default observer(Text);

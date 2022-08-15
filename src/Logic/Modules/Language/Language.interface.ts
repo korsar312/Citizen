@@ -1,4 +1,4 @@
-import { TimesInterface } from "../../../Game/Domains/Times/Times.interface";
+import { TimesInterface } from "../../GameSrc/Game/Domains/Times/Times.interface";
 
 export namespace LanguageInterface {
 	export enum ELanguageType {

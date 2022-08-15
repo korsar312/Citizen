@@ -1,19 +1,9 @@
 import { variablesColorsInterface } from "./VariablesColors.interface";
 import { VariablesColorsList } from "./VariablesColors.color";
-import modules from "../../../Logic/Modules";
+import modules from "../../../Logic/Modules/Modules";
 
 export class VariablesColors {
 	private readonly color: variablesColorsInterface.TColor = VariablesColorsList;
-
-	/**
-	 * Преобразование HEX формата в RGBa
-	 * @param hex - формата цвета HEX
-	 * @param opacity - прозрачность
-	 */
-	private hex2rgba = (hex: string, opacity: number) => {
-		const RGB = String(hex.match(/\w\w/g)?.map((x) => parseInt(x, 16)));
-		return `rgba(${RGB},${opacity})`;
-	};
 
 	/**
 	 * Возвращает выбранной цвет с его оттенком
@@ -26,6 +16,16 @@ export class VariablesColors {
 		const choseColor = String(this.color[modules.setting.store.getTheme()][colors.color][colors.shard]);
 		return this.hex2rgba(choseColor, opacity);
 	}
+
+	/**
+	 * Преобразование HEX формата в RGBa
+	 * @param hex - формата цвета HEX
+	 * @param opacity - прозрачность
+	 */
+	private hex2rgba = (hex: string, opacity: number) => {
+		const RGB = String(hex.match(/\w\w/g)?.map((x) => parseInt(x, 16)));
+		return `rgba(${RGB},${opacity})`;
+	};
 }
 
 /*

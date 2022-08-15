@@ -10,7 +10,7 @@ export namespace typesUtils {
 	/**
 	 * Тип для изменения объекта для конструкций типа {...obj, ...val}
 	 */
-	export type TChangeObject<obj> = Partial<TKey<obj>>;
+	export type ChangeObject<obj> = Partial<TKey<obj>>;
 
 	type TKey<obj> = {
 		[T in keyof obj]: obj[T];
@@ -24,4 +24,12 @@ export namespace typesUtils {
 	type Enumerate<N extends number, Acc extends number[] = []> = Acc["length"] extends N
 		? Acc[number]
 		: Enumerate<N, [...Acc, Acc["length"]]>;
+
+	/**
+	 * Тип для негораниченного по вложенности массива )
+	 */
+	export type RecursiveArray<type> = {
+		[index: number]: RecursiveArray<type> | type;
+		length: number;
+	};
 }

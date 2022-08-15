@@ -3,8 +3,15 @@ import { CSSObject } from "@emotion/react";
 
 class DayStyles extends Styles {
 	public wrapper: CSSObject = {
-		background: this.variablesColors.getColor({ color: "BLUE", shard: "NORMAL" }),
+		display: "flex",
+		flexDirection: "column",
 		borderRadius: this.variablesProportions.radius,
+		gap: 18,
+		padding: "16px 6px",
+	};
+
+	public row: CSSObject = {
+		...this.mixins.flexCenter,
 	};
 }
 

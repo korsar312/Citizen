@@ -1,31 +1,38 @@
 import React, { FC } from "react";
 import styles from "./Day.styles";
 import Text from "../../0.Cores/Text/Text";
-import { TimesInterface } from "../../../Game/Domains/Times/Times.interface";
+import { TimesInterface } from "../../../Logic/GameSrc/Game/Domains/Times/Times.interface";
+import ContentWrapper from "../../0.Cores/ContentWrapper/ContentWrapper";
+import { variablesColorsInterface } from "../../../Styles/Variables/VariablesColors/VariablesColors.interface";
+import { ComponentsInterface } from "../../Components.interface";
 
 interface IDay {
-	date: IDay_TDay;
+	date: TDay;
+	color?: variablesColorsInterface.TColorChoice;
+	extStyle?: ComponentsInterface.TDeepCSSObject;
 }
 
-export type IDay_TDay = {
+type TDay = {
 	weekDay: TimesInterface.EDayOfTheWeekWord;
-	numberDay: number;
-	icon?: SVGElement;
+	numberDay: number | string;
+	bottomPlace?: ComponentsInterface.TIconAndTitle;
 };
 
 const Day: FC<IDay> = (props) => {
-	const { date } = props;
+	const { date, color, extStyle } = props;
 
 	return (
-		<div css={styles.wrapper}>
-			<div>
-				<Text text={date.weekDay} font={{ fontSize: "SMALL", fontWeight: "NORMAL" }} />
+		<ContentWrapper extStyle={[styles.wrapper, extStyle]} color={color}>
+			<div css={styles.row}>
+				<Text text={date.weekDay} font={{ fontSize: "SMALL", fontWeight: "NORMAL" }} noLocalization />
 			</div>
-			<div>
-				<Text text={date.numberDay} font={{ fontSize: "BODY", fontWeight: "NORMAL" }} />
+
+			<div css={styles.row}>
+				<Text text={date.numberDay} font={{ fontSize: "BODY", fontWeight: "NORMAL" }} noLocalization />
 			</div>
-			<div>{date.icon && <Text text={"*"} font={{ fontSize: "SMALL", fontWeight: "NORMAL" }} />}</div>
-		</div>
+
+			<div css={styles.row}>{date.bottomPlace && <date.bottomPlace.icon />}</div>
+		</ContentWrapper>
 	);
 };
 
