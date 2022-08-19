@@ -8,13 +8,13 @@ class TextStyles extends Styles {
 		transition: this.variablesProportions.transition,
 	};
 
-	public color(colors: variablesColorsInterface.TColorChoice) {
+	public color(colors: variablesColorsInterface.TColorChoice): CSSObject {
 		return {
 			color: this.variablesColors.getColor(colors),
-		} as CSSObject;
+		};
 	}
 
-	public font(fonts: variablesFontsInterface.TFontChoice) {
+	public font(fonts: variablesFontsInterface.TFontChoice): CSSObject {
 		return {
 			...this.variablesFonts.fontsConfig(fonts),
 		};

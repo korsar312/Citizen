@@ -1,4 +1,4 @@
-import { SettingInterface } from "../../../Logic/Modules/Settings/Setting.interface";
+import { SettingInterface } from "../../../Logic/Modules/Colors/Colors.interface";
 
 export namespace variablesColorsInterface {
 	type EColorRainbow = {

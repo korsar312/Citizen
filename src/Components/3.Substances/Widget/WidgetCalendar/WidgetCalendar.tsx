@@ -1,14 +1,21 @@
 import React, { FC } from "react";
-import styles from "./CalendarWidget.styles";
+import styles from "./WidgetCalendar.styles";
 import game from "../../../../Logic/GameSrc/Game/Domains/Domains";
 import Day from "../../../2.Molecules/Day/Day";
-import WidgetWrappers from "../../../1.Atoms/Wrappers/WidgetWrappers/WidgetWrappers";
+import WidgetWrappers from "../../../1.Atoms/Wrappers/WrappersWidget/WrappersWidget";
+import { ComponentsInterface } from "../../../Components.interface";
 
-const CalendarWidget: FC = () => {
+interface IWidgetCalendar {
+	extStyle?: ComponentsInterface.TDeepCSSObject;
+}
+
+const WidgetCalendar: FC<IWidgetCalendar> = (props) => {
+	const { extStyle } = props;
+
 	const week = game.times.store.getDays();
 
 	return (
-		<WidgetWrappers>
+		<WidgetWrappers extStyle={extStyle}>
 			<div css={styles.wrapper}>
 				{Object.entries(week).map((day) => {
 					const isCurrentDay = game.times.store.getCurrentDate().day === +day[0];
@@ -30,4 +37,4 @@ const CalendarWidget: FC = () => {
 	);
 };
 
-export default CalendarWidget;
+export default WidgetCalendar;

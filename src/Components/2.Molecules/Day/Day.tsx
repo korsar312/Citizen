@@ -5,6 +5,7 @@ import { TimesInterface } from "../../../Logic/GameSrc/Game/Domains/Times/Times.
 import ContentWrapper from "../../0.Cores/ContentWrapper/ContentWrapper";
 import { variablesColorsInterface } from "../../../Styles/Variables/VariablesColors/VariablesColors.interface";
 import { ComponentsInterface } from "../../Components.interface";
+import { LanguageInterface } from "../../../Logic/Modules/Language/Language.interface";
 
 interface IDay {
 	date: TDay;
@@ -15,7 +16,12 @@ interface IDay {
 type TDay = {
 	weekDay: TimesInterface.EDayOfTheWeekWord;
 	numberDay: number | string;
-	bottomPlace?: ComponentsInterface.TIconAndTitle;
+	bottomPlace?: Day_TBottomPlace;
+};
+
+export type Day_TBottomPlace = {
+	icon: FC<React.SVGProps<SVGSVGElement>>;
+	title?: LanguageInterface.TAllLanguageWord;
 };
 
 const Day: FC<IDay> = (props) => {

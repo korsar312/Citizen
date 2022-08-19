@@ -1,7 +1,7 @@
 import { Styles } from "../../../../Styles/Styles";
 import { CSSObject } from "@emotion/react";
 
-class CalendarWidgetStyles extends Styles {
+class WidgetCalendarStyles extends Styles {
 	public wrapper: CSSObject = {
 		display: "flex",
 		justifyContent: "space-between",
@@ -12,4 +12,4 @@ class CalendarWidgetStyles extends Styles {
 	};
 }
 
-export default new CalendarWidgetStyles();
+export default new WidgetCalendarStyles();

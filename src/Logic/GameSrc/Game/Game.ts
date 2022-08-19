@@ -1,16 +1,19 @@
 import { Domains } from "./Domains/Domains";
 import { Lists } from "./Lists/Lists";
-import { Repository } from "./Repository/Repository";
+import { Saving } from "./Repository/Saveing/Saving";
+import { Hero } from "./Repository/Hero/Hero";
 
 export class Game {
-	private domains: Domains;
-	private lists: Lists;
-	private repository: any;
+	public domains: Domains;
+	public lists: Lists;
+	public saving: Saving;
+	public hero: Hero;
 
 	constructor() {
 		this.domains = new Domains();
 		this.lists = new Lists();
-		this.repository = new Repository();
+		this.saving = new Saving();
+		this.hero = new Hero();
 	}
 }
 

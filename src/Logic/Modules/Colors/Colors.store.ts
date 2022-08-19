@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { SettingInterface } from "./Setting.interface";
+import { SettingInterface } from "./Colors.interface";
 
-export class SettingStore {
+export class ColorsStore {
 	private theme: SettingInterface.ETheme = SettingInterface.ETheme.DARK;
 
 	constructor() {

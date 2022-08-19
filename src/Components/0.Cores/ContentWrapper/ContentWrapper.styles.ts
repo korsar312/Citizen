@@ -7,10 +7,10 @@ class ContentWrapperStyles extends Styles {
 		transition: this.variablesProportions.transition,
 	};
 
-	public color(colors: variablesColorsInterface.TColorChoice) {
+	public color(colors: variablesColorsInterface.TColorChoice): CSSObject {
 		return {
 			background: this.variablesColors.getColor(colors),
-		} as CSSObject;
+		};
 	}
 }
 
