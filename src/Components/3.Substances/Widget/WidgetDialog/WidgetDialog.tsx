@@ -4,32 +4,28 @@ import { ComponentsInterface } from "../../../Components.interface";
 import Text from "../../../0.Cores/Text/Text";
 import Button from "../../../1.Atoms/Button/Button";
 import styles from "./WidgetDialog.styles";
+import { LocationsInterface } from "../../../../Logic/GameSrc/GameResources/Locations/Locations.interface";
 
 interface IWidgetDialog {
-	speech: WidgetDialog_TSpeech[];
+	speech: LocationsInterface.TDialogLine[];
+	setLocate: (heroLocate: LocationsInterface.TDialog) => void;
 	extStyle?: ComponentsInterface.TDeepCSSObject;
 }
 
-export type WidgetDialog_TSpeech = {
-	id: number;
-	dialogLine: JSX.Element;
-	callback: () => void;
-};
-
 const WidgetDialog: FC<IWidgetDialog> = (props) => {
-	const { speech, extStyle } = props;
+	const { speech, setLocate, extStyle } = props;
 
 	return (
 		<WidgetWrappers extStyle={[styles.wrapper, extStyle]}>
 			{speech.map((el, index) => (
 				<Button
-					key={el.id}
-					onClick={el.callback}
+					key={el.dialogLine}
+					onClick={() => setLocate(el.callback())}
 					extStyle={styles.line}
 					hoverColor={{ color: "BLUE", shard: "DARK" }}
 				>
 					<Text text={`${index + 1}.⠀`} />
-					{el.dialogLine}
+					<Text text={el.dialogLine} />
 				</Button>
 			))}
 		</WidgetWrappers>

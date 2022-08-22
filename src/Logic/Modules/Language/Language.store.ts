@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { LanguageInterface } from "./Language.interface";
 
 export class LanguageStore {
-	private currentLanguage: LanguageInterface.ELanguageType = LanguageInterface.ELanguageType.EN;
+	private currentLanguage: LanguageInterface.ELanguageType = LanguageInterface.ELanguageType.RU;
 
 	constructor() {
 		makeAutoObservable(this);

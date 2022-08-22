@@ -1,4 +1,5 @@
-import { TimesInterface } from "../../GameSrc/Game/Domains/Times/Times.interface";
+import { TimesInterface } from "../../GameSrc/GameResources/Domains/Times/Times.interface";
+import { LocationsInterface } from "../../GameSrc/GameResources/Locations/Locations.interface";
 
 export namespace LanguageInterface {
 	/**
@@ -28,7 +29,9 @@ export namespace LanguageInterface {
 	/**
 	 * Список диалоговых слов
 	 */
-	const ELanguageDialogWord = {};
+	const ELanguageDialogWord = {
+		...LocationsInterface.EWordLocations,
+	};
 
 	/**
 	 * Список всех слов

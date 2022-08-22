@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import WrappersWidget from "../../../1.Atoms/Wrappers/WrappersWidget/WrappersWidget";
 import { ComponentsInterface } from "../../../Components.interface";
 
@@ -12,4 +12,4 @@ const WidgetInformation: FC<IWidgetInformation> = (props) => {
 	return <WrappersWidget extStyle={extStyle}>{""}</WrappersWidget>;
 };
 
-export default WidgetInformation;
+export default memo(WidgetInformation);

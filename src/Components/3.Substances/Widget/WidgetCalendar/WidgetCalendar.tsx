@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import styles from "./WidgetCalendar.styles";
-import game from "../../../../Logic/GameSrc/Game/Domains/Domains";
 import Day from "../../../2.Molecules/Day/Day";
 import WidgetWrappers from "../../../1.Atoms/Wrappers/WrappersWidget/WrappersWidget";
 import { ComponentsInterface } from "../../../Components.interface";
+import gameResources from "../../../../Logic/GameSrc/GameResources/GameResources";
 
 interface IWidgetCalendar {
 	extStyle?: ComponentsInterface.TDeepCSSObject;
@@ -12,13 +12,13 @@ interface IWidgetCalendar {
 const WidgetCalendar: FC<IWidgetCalendar> = (props) => {
 	const { extStyle } = props;
 
-	const week = game.times.store.getDays();
+	const week = gameResources.domains.times.store.getDays();
 
 	return (
 		<WidgetWrappers extStyle={extStyle}>
 			<div css={styles.wrapper}>
 				{Object.entries(week).map((day) => {
-					const isCurrentDay = game.times.store.getCurrentDate().day === +day[0];
+					const isCurrentDay = gameResources.domains.times.store.getCurrentDate().day === +day[0];
 
 					return (
 						<Day
@@ -37,4 +37,4 @@ const WidgetCalendar: FC<IWidgetCalendar> = (props) => {
 	);
 };
 
-export default WidgetCalendar;
+export default memo(WidgetCalendar);
