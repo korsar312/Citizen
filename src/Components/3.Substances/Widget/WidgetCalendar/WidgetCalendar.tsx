@@ -3,7 +3,7 @@ import styles from "./WidgetCalendar.styles";
 import Day from "../../../2.Molecules/Day/Day";
 import WidgetWrappers from "../../../1.Atoms/Wrappers/WrappersWidget/WrappersWidget";
 import { ComponentsInterface } from "../../../Components.interface";
-import gameResources from "../../../../Logic/GameSrc/GameResources/GameResources";
+import gameControllers from "../../../../Logic/GameSrc/GameControllers/GameControllers";
 
 interface IWidgetCalendar {
 	extStyle?: ComponentsInterface.TDeepCSSObject;
@@ -12,13 +12,13 @@ interface IWidgetCalendar {
 const WidgetCalendar: FC<IWidgetCalendar> = (props) => {
 	const { extStyle } = props;
 
-	const week = gameResources.domains.times.store.getDays();
+	const week = gameControllers.getDays();
 
 	return (
 		<WidgetWrappers extStyle={extStyle}>
 			<div css={styles.wrapper}>
 				{Object.entries(week).map((day) => {
-					const isCurrentDay = gameResources.domains.times.store.getCurrentDate().day === +day[0];
+					const isCurrentDay = gameControllers.getCurrentDate().day === +day[0];
 
 					return (
 						<Day

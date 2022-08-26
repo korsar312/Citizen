@@ -1,13 +1,19 @@
 import { RouteObject } from "react-router-dom";
 
 export namespace RouteInterfaces {
-  export enum PathName {
-    HOME = "/",
-    ERROR = "*",
-  }
+	/**
+	 * Имя пути и путь роута
+	 */
+	export enum PathName {
+		HOME = "/",
+		ERROR = "*",
+	}
 
-  export interface IRoute extends Omit<RouteObject, "path"> {
-    path: PathName;
-    children?: IRoute[];
-  }
+	/**
+	 * Тип для пути
+	 */
+	export interface IRoute extends Omit<RouteObject, "path"> {
+		path: PathName;
+		children?: IRoute[];
+	}
 }

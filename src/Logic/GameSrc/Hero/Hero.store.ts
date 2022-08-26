@@ -1,20 +1,27 @@
 import { LocationsInterface } from "../GameResources/Locations/Locations.interface";
-import gameResources from "../GameResources/GameResources";
+import { HeroInterface } from "./Hero.interface";
+import { makeAutoObservable } from "mobx";
 
 export class HeroStore {
-	private currentLocate: LocationsInterface.TDialog = gameResources.locate.farund.dialog.start();
+	private currentLocate: LocationsInterface.TDialog;
 
-	constructor() {
-		this.currentLocate = gameResources.locate.farund.dialog.start();
+	constructor(hero: HeroInterface.THero) {
+		this.currentLocate = hero.locate;
+		makeAutoObservable(this);
 	}
 
+	/**
+	 * Получить текущую локацию ГГ
+	 */
 	public getCurrentLocate() {
 		return this.currentLocate;
 	}
 
+	/**
+	 * Установить текущую локацию ГГ
+	 * @param locate - объект локации
+	 */
 	public setCurrentLocate(locate: LocationsInterface.TDialog) {
 		this.currentLocate = locate;
 	}
 }
-
-export default new HeroStore();

@@ -90,16 +90,3 @@ export const VariablesColorsList: variablesColorsInterface.TColor = {
 		},
 	},
 };
-
-/*
-			NEUTRAL_1: "#ffffff",
-			NEUTRAL_2: "#f5f5f5",
-			NEUTRAL_3: "#c3c3c3",
-			NEUTRAL_4: "#929292",
-			NEUTRAL_5: "#626262",
-			NEUTRAL_6: "#4e4e4e",
-			NEUTRAL_7: "#313131",
-			NEUTRAL_8: "#212730",
-			NEUTRAL_9: "#1A2028",
-			NEUTRAL_10: "#000000",
- */

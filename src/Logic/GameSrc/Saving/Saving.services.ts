@@ -11,12 +11,4 @@ export class SavingServices {
 			month: 10,
 		},
 	};
-
-	setSave(save: SavingInterface.TSave) {
-		this.save = save;
-	}
-
-	getSave() {
-		return this.save;
-	}
 }

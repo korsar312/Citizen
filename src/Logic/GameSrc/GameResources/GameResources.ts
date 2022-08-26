@@ -13,5 +13,3 @@ export class GameResources {
 		this.locate = new Locations();
 	}
 }
-
-export default new GameResources();

@@ -1,19 +1,23 @@
-import { LocationsInterface as ILoc } from "../Locations.interface";
+import { LocationsInterface, LocationsInterface as ILoc } from "../Locations.interface";
 import downtown from "./Images/downtown.jpg";
 import eastWall from "./Images/eastWall.jpg";
 import northernWall from "./Images/northernWall.png";
 import outskirts from "./Images/outskirts.jpg";
 import shopping_district from "./Images/shopping_district.jpg";
 import temple from "./Images/temple.jpg";
+import { FarundInterface } from "./Farund.interface";
 
-export class FarundDialog implements ILoc.ILocation {
-	start(): ILoc.TDialog {
-		const image: ILoc.TEditDialog["image"] = "";
+export class FarundDialog implements FarundInterface.IFarundDialog {
+	START(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = outskirts;
 		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FARUND_START;
 		const dialog = [
 			{
 				dialogLine: ILoc.EWordDialog.GO_MAIN_TEMPLE,
-				callback: this.temple.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.TEMPLE,
+				},
 			},
 		];
 
@@ -24,209 +28,307 @@ export class FarundDialog implements ILoc.ILocation {
 		};
 	}
 
-	outskirts(config?: ILoc.TEditDialog): ILoc.TDialog {
+	OUTSKIRTS(): ILoc.TDialog {
 		const image: ILoc.TEditDialog["image"] = outskirts;
 		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FARUND_ENTER_OUTSKIRTS;
 		const dialog: ILoc.TDialogLine[] = [
 			{
 				dialogLine: ILoc.EWordDialog.GO_MAIN_TEMPLE,
-				callback: this.temple.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.TEMPLE,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_DOWNTOWN,
-				callback: this.downtown.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.DOWNTOWN,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_SHOPPING_DISTRICT,
-				callback: this.shopping_district.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.SHOPPING_DISTRICT,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_EAST_WALL_CITY,
-				callback: this.eastWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.EASTWALL,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_NORTHERN_WALL_CITY,
-				callback: this.northernWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.NORTHERNWALL,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.LOOK_AROUND,
-				callback: this.outskirts.bind(this, { speaker: ILoc.EWordSpeaker.FARUND_OUTSKIRTS_DESCRIPTION }),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.EASTWALL,
+					options: { speaker: ILoc.EWordSpeaker.FARUND_OUTSKIRTS_DESCRIPTION },
+				},
 			},
 		];
 
 		return {
-			image: config?.image || image,
-			speaker: config?.speaker || speaker,
-			dialog: config?.dialog || dialog,
+			image,
+			speaker,
+			dialog,
 		};
 	}
 
-	temple(config?: ILoc.TEditDialog): ILoc.TDialog {
+	TEMPLE(): ILoc.TDialog {
 		const image: ILoc.TEditDialog["image"] = temple;
 		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FARUND_ENTER_TEMPLE;
 		const dialog = [
 			{
 				dialogLine: ILoc.EWordDialog.GO_OUTSKIRTS,
-				callback: this.outskirts.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.OUTSKIRTS,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_DOWNTOWN,
-				callback: this.downtown.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.DOWNTOWN,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_SHOPPING_DISTRICT,
-				callback: this.shopping_district.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.SHOPPING_DISTRICT,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_EAST_WALL_CITY,
-				callback: this.eastWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.EASTWALL,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_NORTHERN_WALL_CITY,
-				callback: this.northernWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.NORTHERNWALL,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.LOOK_AROUND,
-				callback: this.temple.bind(this, { speaker: ILoc.EWordSpeaker.FARUND_TEMPLE_DESCRIPTION_CITY }),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.TEMPLE,
+					options: { speaker: ILoc.EWordSpeaker.FARUND_TEMPLE_DESCRIPTION_CITY },
+				},
 			},
 		];
 
 		return {
-			image: config?.image || image,
-			speaker: config?.speaker || speaker,
-			dialog: config?.dialog || dialog,
+			image,
+			speaker,
+			dialog,
 		};
 	}
 
-	downtown(config?: ILoc.TEditDialog): ILoc.TDialog {
+	DOWNTOWN(): ILoc.TDialog {
 		const image: ILoc.TEditDialog["image"] = downtown;
 		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FARUND_ENTER_DOWNTOWN;
 		const dialog = [
 			{
 				dialogLine: ILoc.EWordDialog.GO_OUTSKIRTS,
-				callback: this.outskirts.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.OUTSKIRTS,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_MAIN_TEMPLE,
-				callback: this.temple.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.TEMPLE,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_SHOPPING_DISTRICT,
-				callback: this.shopping_district.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.SHOPPING_DISTRICT,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_EAST_WALL_CITY,
-				callback: this.eastWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.EASTWALL,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_NORTHERN_WALL_CITY,
-				callback: this.northernWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.NORTHERNWALL,
+				},
 			},
 		];
 
 		return {
-			image: config?.image || image,
-			speaker: config?.speaker || speaker,
-			dialog: config?.dialog || dialog,
+			image,
+			speaker,
+			dialog,
 		};
 	}
 
-	shopping_district(config?: ILoc.TEditDialog): ILoc.TDialog {
+	SHOPPING_DISTRICT(): ILoc.TDialog {
 		const image: ILoc.TEditDialog["image"] = shopping_district;
 		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FARUND_ENTER_SHOPPING_DISTRICT;
 		const dialog = [
 			{
 				dialogLine: ILoc.EWordDialog.GO_OUTSKIRTS,
-				callback: this.outskirts.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.OUTSKIRTS,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_MAIN_TEMPLE,
-				callback: this.temple.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.TEMPLE,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_DOWNTOWN,
-				callback: this.downtown.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.DOWNTOWN,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_EAST_WALL_CITY,
-				callback: this.eastWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.EASTWALL,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_NORTHERN_WALL_CITY,
-				callback: this.northernWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.NORTHERNWALL,
+				},
 			},
 		];
 
 		return {
-			image: config?.image || image,
-			speaker: config?.speaker || speaker,
-			dialog: config?.dialog || dialog,
+			image,
+			speaker,
+			dialog,
 		};
 	}
 
-	eastWall(config?: ILoc.TEditDialog): ILoc.TDialog {
+	EASTWALL(): ILoc.TDialog {
 		const image: ILoc.TEditDialog["image"] = eastWall;
 		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FARUND_ENTER_EAST_WALL;
 		const dialog = [
 			{
 				dialogLine: ILoc.EWordDialog.GO_OUTSKIRTS,
-				callback: this.outskirts.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.OUTSKIRTS,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_MAIN_TEMPLE,
-				callback: this.temple.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.TEMPLE,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_DOWNTOWN,
-				callback: this.downtown.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.DOWNTOWN,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_SHOPPING_DISTRICT,
-				callback: this.shopping_district.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.SHOPPING_DISTRICT,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_NORTHERN_WALL_CITY,
-				callback: this.northernWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.NORTHERNWALL,
+				},
 			},
 		];
 
 		return {
-			image: config?.image || image,
-			speaker: config?.speaker || speaker,
-			dialog: config?.dialog || dialog,
+			image,
+			speaker,
+			dialog,
 		};
 	}
 
-	northernWall(config?: ILoc.TEditDialog): ILoc.TDialog {
+	NORTHERNWALL(): ILoc.TDialog {
 		const image: ILoc.TEditDialog["image"] = northernWall;
 		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FARUND_ENTER_NORTHERN_WALL;
 		const dialog = [
 			{
 				dialogLine: ILoc.EWordDialog.GO_OUTSKIRTS,
-				callback: this.outskirts.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.OUTSKIRTS,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_MAIN_TEMPLE,
-				callback: this.temple.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.TEMPLE,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_DOWNTOWN,
-				callback: this.downtown.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.DOWNTOWN,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_SHOPPING_DISTRICT,
-				callback: this.shopping_district.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.SHOPPING_DISTRICT,
+				},
 			},
 			{
 				dialogLine: ILoc.EWordDialog.GO_EAST_WALL_CITY,
-				callback: this.eastWall.bind(this),
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.EASTWALL,
+				},
 			},
 		];
 
 		return {
-			image: config?.image || image,
-			speaker: config?.speaker || speaker,
-			dialog: config?.dialog || dialog,
+			image,
+			speaker,
+			dialog,
 		};
 	}
 }

@@ -7,5 +7,3 @@ export class SavingModule {
 		this.services = new SavingServices();
 	}
 }
-
-export default new SavingModule();

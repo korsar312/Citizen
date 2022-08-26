@@ -8,7 +8,7 @@ import { LocationsInterface } from "../../../../Logic/GameSrc/GameResources/Loca
 
 interface IWidgetDialog {
 	speech: LocationsInterface.TDialogLine[];
-	setLocate: (heroLocate: LocationsInterface.TDialog) => void;
+	setLocate: (heroLocate: LocationsInterface.TDialogLine) => void;
 	extStyle?: ComponentsInterface.TDeepCSSObject;
 }
 
@@ -20,7 +20,7 @@ const WidgetDialog: FC<IWidgetDialog> = (props) => {
 			{speech.map((el, index) => (
 				<Button
 					key={el.dialogLine}
-					onClick={() => setLocate(el.callback())}
+					onClick={() => setLocate(el)}
 					extStyle={styles.line}
 					hoverColor={{ color: "BLUE", shard: "DARK" }}
 				>

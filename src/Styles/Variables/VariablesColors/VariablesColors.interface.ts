@@ -1,6 +1,9 @@
 import { SettingInterface } from "../../../Logic/Modules/Colors/Colors.interface";
 
 export namespace variablesColorsInterface {
+	/**
+	 * Список радужных цветов
+	 */
 	type EColorRainbow = {
 		BLUE: "BLUE";
 		GREEN: "GREEN";
@@ -9,6 +12,9 @@ export namespace variablesColorsInterface {
 		YELLOW: "YELLOW";
 	};
 
+	/**
+	 * Список оттенков радужных цветов
+	 */
 	export type EColorShade = {
 		LIGHT: "LIGHT";
 		NORMAL: "NORMAL";
@@ -16,10 +22,16 @@ export namespace variablesColorsInterface {
 		DARKER: "DARKER";
 	};
 
+	/**
+	 * Список обычных цветов
+	 */
 	type EColorNeutral = {
 		NEUTRAL: "NEUTRAL";
 	};
 
+	/**
+	 * Список оттенков обычных цветов
+	 */
 	export type ENeutralShade = {
 		NEUTRAL_1: "NEUTRAL_1";
 		NEUTRAL_2: "NEUTRAL_2";
@@ -33,25 +45,40 @@ export namespace variablesColorsInterface {
 		NEUTRAL_10: "NEUTRAL_10";
 	};
 
+	/**
+	 * Выбор радужных цветов с оттенком
+	 */
 	type TColor_1 = {
 		[key in keyof EColorRainbow]: {
 			[key in keyof EColorShade]: string;
 		};
 	};
 
+	/**
+	 * Выбор обычных цветов с оттенком
+	 */
 	type TColor_2 = {
 		[key in keyof EColorNeutral]: {
 			[key in keyof ENeutralShade]: string;
 		};
 	};
 
+	/**
+	 * Все цвета
+	 */
 	export type TColorAll = TColor_1 & TColor_2;
 
+	/**
+	 * Тип для цветовых тем
+	 */
 	export type TColor = {
 		[key in SettingInterface.ETheme]: TColorAll;
 	};
 
 	// я хз как это по нормальному сделать
+	/**
+	 * Выбор между обычными или радужными цветами
+	 */
 	export type TColorChoice =
 		| {
 				color: keyof EColorRainbow;

@@ -1,4 +1,5 @@
 import { typesUtils } from "../../../Libs/Utils/TypesUtils";
+import { FarundInterface } from "./Farund/Farund.interface";
 
 export namespace LocationsInterface {
 	/**
@@ -10,11 +11,18 @@ export namespace LocationsInterface {
 	}
 
 	/**
-	 * Интерфейс для обязательный свойств локаций
+	 * Список локаций
 	 */
-	export interface ILocation {
-		start: () => TDialog;
+	export enum ILocationList {
+		FARUND = "FARUND",
 	}
+
+	/**
+	 * Интерфейс для класса локаций
+	 */
+	export type ILocation = {
+		[key in ILocationList]: any;
+	};
 
 	/**
 	 * Полное описание текущего диалога
@@ -26,16 +34,35 @@ export namespace LocationsInterface {
 	};
 
 	/**
-	 * Разовое зменение диалога
+	 * Разовое изменение диалога
 	 */
 	export type TEditDialog = typesUtils.ChangeObject<TDialog>;
+
+	/**
+	 * Список локаций и их диалоги
+	 */
+	type TLoc = {
+		[ILocationList.FARUND]: FarundInterface.IFarundDialogName;
+	};
+
+	/**
+	 * Путь к следующему диалогу
+	 */
+	type TDialogPat<loc extends ILocationList> = {
+		loc: loc;
+		dialog: TLoc[loc];
+		options?: TEditDialog;
+	};
+
+	export type TDialogPath = TDialogPat<ILocationList>;
 
 	/**
 	 * Реплика и последствие
 	 */
 	export type TDialogLine = {
 		dialogLine: EWordDialog;
-		callback: () => TDialog;
+		callback?: () => void;
+		path: TDialogPath;
 	};
 
 	/**

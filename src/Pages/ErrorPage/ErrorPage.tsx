@@ -1,7 +1,10 @@
-import React from 'react';
+import React from "react";
 
+/**
+ * Страница ощибки
+ */
 const ErrorPage = () => {
-	return <div></div>;
+	return <div />;
 };
 
 export default ErrorPage;
