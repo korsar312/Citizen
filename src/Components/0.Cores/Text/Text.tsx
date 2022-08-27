@@ -31,11 +31,7 @@ const Text: FC<IText> = (props) => {
 	} = props;
 
 	const localization = (word: TText) =>
-		String(
-			word in LanguageInterface.allLanguageWord
-				? modules.language.service.getText(word as LanguageInterface.TAllLanguageWord)
-				: word,
-		);
+		String(word in LanguageInterface.allLanguageWord ? modules.language.service.getText(word as LanguageInterface.TAllLanguageWord) : word);
 
 	const wordTranslate = (word: TText): string => {
 		const wordTranslate = noLocalization ? String(word) : localization(word);
@@ -52,11 +48,7 @@ const Text: FC<IText> = (props) => {
 		}
 	};
 
-	return (
-		<span css={[styles.wrapper, styles.color(color), styles.font(font), ...libs.utils.getArray(extStyle)]}>
-			{wordTranslate(text)}
-		</span>
-	);
+	return <span css={[styles.wrapper, styles.color(color), styles.font(font), ...libs.utils.getArray(extStyle)]}>{wordTranslate(text)}</span>;
 };
 
 export default observer(Text);

@@ -10,10 +10,7 @@ class ButtonStyles extends Styles {
 		cursor: "pointer",
 	};
 
-	public color(
-		colors: variablesColorsInterface.TColorChoice,
-		hover?: variablesColorsInterface.TColorChoice,
-	): CSSObject {
+	public color(colors: variablesColorsInterface.TColorChoice, hover?: variablesColorsInterface.TColorChoice): CSSObject {
 		return {
 			background: this.variablesColors.getColor(colors),
 			"&:hover": {

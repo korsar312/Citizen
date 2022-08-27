@@ -8,26 +8,6 @@ import temple from "./Images/temple.jpg";
 import { FarundInterface } from "./Farund.interface";
 
 export class FarundDialog implements FarundInterface.IFarundDialog {
-	START(): ILoc.TDialog {
-		const image: ILoc.TEditDialog["image"] = outskirts;
-		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FARUND_START;
-		const dialog = [
-			{
-				dialogLine: ILoc.EWordDialog.GO_MAIN_TEMPLE,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.TEMPLE,
-				},
-			},
-		];
-
-		return {
-			image: image,
-			speaker: speaker,
-			dialog: dialog,
-		};
-	}
-
 	OUTSKIRTS(): ILoc.TDialog {
 		const image: ILoc.TEditDialog["image"] = outskirts;
 		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FARUND_ENTER_OUTSKIRTS;

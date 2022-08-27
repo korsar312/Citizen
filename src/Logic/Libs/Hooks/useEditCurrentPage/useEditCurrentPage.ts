@@ -31,8 +31,7 @@ export const useEditCurrentPage = (
 	};
 
 	const handleNextPage = () => {
-		(currentPage * countVisible || countVisible) < countElements &&
-			setCurrentPage((prevState) => prevState + 1);
+		(currentPage * countVisible || countVisible) < countElements && setCurrentPage((prevState) => prevState + 1);
 	};
 
 	return [currentPage, handlePrevPage, handleNextPage, handleFirstPage, setCurrentPage, totalPages];

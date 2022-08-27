@@ -1,4 +1,4 @@
-import { DependencyList, EffectCallback, useEffect, useRef } from 'react';
+import { DependencyList, EffectCallback, useEffect, useRef } from "react";
 
 /**
  * Хук обновления зависимостей

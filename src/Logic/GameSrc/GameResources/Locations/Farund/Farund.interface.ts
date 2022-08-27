@@ -5,7 +5,6 @@ export namespace FarundInterface {
 	 * Список диалогов данной локации
 	 */
 	export enum IFarundDialogName {
-		START = "START",
 		OUTSKIRTS = "OUTSKIRTS",
 		TEMPLE = "TEMPLE",
 		DOWNTOWN = "DOWNTOWN",

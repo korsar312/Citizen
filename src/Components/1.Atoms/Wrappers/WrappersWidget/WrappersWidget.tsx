@@ -14,9 +14,7 @@ interface IWrappersWidget {
 const WrappersWidget: FC<IWrappersWidget> = (props) => {
 	const { children, color = { color: "NEUTRAL", shard: "NEUTRAL_9" }, extStyle } = props;
 
-	return (
-		<ContentWrapper extStyle={[styles.wrapper, styles.color(color), extStyle]}>{children}</ContentWrapper>
-	);
+	return <ContentWrapper extStyle={[styles.wrapper, styles.color(color), extStyle]}>{children}</ContentWrapper>;
 };
 
 export default observer(WrappersWidget);

@@ -1,15 +1,15 @@
 import { Domains } from "./Domains/Domains";
 import { Lists } from "./Lists/Lists";
-import { Locations } from "./Locations/Locations";
+import { LocationsModule } from "./Locations/Locations.module";
 
 export class GameResources {
 	public domains: Domains;
 	public lists: Lists;
-	public locate: Locations;
+	public locate: LocationsModule;
 
 	constructor() {
 		this.domains = new Domains();
 		this.lists = new Lists();
-		this.locate = new Locations();
+		this.locate = new LocationsModule();
 	}
 }

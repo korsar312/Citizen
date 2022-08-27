@@ -18,12 +18,7 @@ const WidgetDialog: FC<IWidgetDialog> = (props) => {
 	return (
 		<WidgetWrappers extStyle={[styles.wrapper, extStyle]}>
 			{speech.map((el, index) => (
-				<Button
-					key={el.dialogLine}
-					onClick={() => setLocate(el)}
-					extStyle={styles.line}
-					hoverColor={{ color: "BLUE", shard: "DARK" }}
-				>
+				<Button key={el.dialogLine} onClick={() => setLocate(el)} extStyle={styles.line} hoverColor={{ color: "BLUE", shard: "DARK" }}>
 					<Text text={`${index + 1}.⠀`} />
 					<Text text={el.dialogLine} />
 				</Button>

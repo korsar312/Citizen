@@ -16,10 +16,7 @@ const Button: FC<IButton> = (props) => {
 	const { children, onClick, color = { color: "NEUTRAL", shard: "NEUTRAL_9" }, hoverColor, extStyle } = props;
 
 	return (
-		<button
-			onClick={onClick}
-			css={[styles.wrapper, styles.color(color, hoverColor), ...libs.utils.getArray(extStyle)]}
-		>
+		<button onClick={onClick} css={[styles.wrapper, styles.color(color, hoverColor), ...libs.utils.getArray(extStyle)]}>
 			{children}
 		</button>
 	);

@@ -1,5 +1,5 @@
-import { Hooks } from './Hooks/Hooks';
-import { Utils } from './Utils/Utils';
+import { Hooks } from "./Hooks/Hooks";
+import { Utils } from "./Utils/Utils";
 
 class Libs {
 	public hooks: Hooks;
