@@ -63,12 +63,14 @@ export namespace LocationsInterface {
 		dialogLine: EWordDialog;
 		callback?: () => void;
 		path: TDialogPath;
+		disable?: boolean;
 	};
 
 	/**
 	 * Реплики норатора
 	 */
 	export enum EWordSpeaker {
+		OVER = "OVER",
 		FARUND_START = "FARUND_START",
 		FARUND_OUTSKIRTS_DESCRIPTION = "FARUND_OUTSKIRTS_DESCRIPTION",
 		FARUND_TEMPLE_DESCRIPTION_CITY = "FARUND_TEMPLE_DESCRIPTION_CITY",
@@ -78,12 +80,24 @@ export namespace LocationsInterface {
 		FARUND_ENTER_TEMPLE = "FARUND_ENTER_TEMPLE",
 		FARUND_ENTER_DOWNTOWN = "FARUND_ENTER_DOWNTOWN",
 		FARUND_ENTER_SHOPPING_DISTRICT = "FARUND_ENTER_SHOPPING_DISTRICT",
+		YOU_LIKE_COMMUNYTY = "YOU_LIKE_COMMUNYTY",
+		OH_OKAY = "OH_OKAY",
+		GO_WALK = "GO_WALK",
+		CHOICES = "CHOICES",
+		CHOICE_PLACE = "CHOICE_PLACE",
+		FALED = "FALED",
+		AND_PLACE = "AND_PLACE",
+		AND_TIMES = "AND_TIMES",
+		CHOICING_PLACE = "CHOICING_PLACE",
+		CHOICING_TIMES = "CHOICING_TIMES",
+		YEEEE = "YEEEE",
 	}
 
 	/**
 	 * Реплики диалога
 	 */
 	export enum EWordDialog {
+		FINAL = "FINAL",
 		GO_MAIN_TEMPLE = "GO_MAIN_TEMPLE",
 		GO_SHOPPING_DISTRICT = "GO_SHOPPING_DISTRICT",
 		GO_OUTSKIRTS = "GO_OUTSKIRTS",
@@ -91,6 +105,30 @@ export namespace LocationsInterface {
 		GO_EAST_WALL_CITY = "GO_EAST_WALL_CITY",
 		GO_NORTHERN_WALL_CITY = "GO_NORTHERN_WALL_CITY",
 		LOOK_AROUND = "LOOK_AROUND",
+		YEAP = "YEAP",
+		NOPE = "NOPE",
+		SILIENCE = "SILIENCE",
+		I_AGREE = "I_AGREE",
+		GET_OUT = "GET_OUT",
+		GO_CHOICE_PLACE = "GO_CHOICE_PLACE",
+		GO_CHOICE_TIMES = "GO_CHOICE_TIMES",
+		I_DONT_WALK = "I_DONT_WALK",
+		KAFE = "KAFE",
+		PARK = "PARK",
+		PARK_ATTRACTIONS = "PARK_ATTRACTIONS",
+		RESTORAN_OSTANKINO = "RESTORAN_OSTANKINO",
+		YOUR_DREEM = "YOUR_DREEM",
+		CATS = "CATS",
+		GO_CURRENT_DAY = "GO_CURRENT_DAY",
+		PN = "PN",
+		VT = "VT",
+		SR = "SR",
+		CHT = "CHT",
+		PT = "PT",
+		SB = "SB",
+		VS = "VS",
+		NEXT = "NEXT",
+		EMPTY = "EMPTY",
 	}
 
 	export const EWordLocations = {

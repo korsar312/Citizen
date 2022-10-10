@@ -11,7 +11,7 @@ class WidgetDialogStyles extends Styles {
 	public line: CSSObject = {
 		display: "flex",
 		width: "100%",
-		padding: "5px 10px",
+		padding: "20px 10px",
 	};
 }
 

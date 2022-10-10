@@ -10,7 +10,7 @@ class GameControllers {
 
 	constructor() {
 		this.resources = new GameResources();
-		this.hero = new HeroModule({ locate: this.resources.locate.locationsPlaces.FARUND.dialog.EASTWALL() });
+		this.hero = new HeroModule({ locate: this.resources.locate.locationsPlaces.FARUND.dialog.START() });
 		this.save = new SavingModule();
 	}
 
@@ -20,6 +20,7 @@ class GameControllers {
 	 */
 	public goLocations(dialogLine: LocationsInterface.TDialogLine) {
 		const { loc, dialog, options } = dialogLine.path;
+		dialogLine.callback?.();
 		this.hero.store.setCurrentLocate({ ...this.resources.locate.locationsPlaces[loc].dialog[dialog](), ...options });
 	}
 
@@ -42,6 +43,10 @@ class GameControllers {
 	 */
 	public getCurrentDate() {
 		return this.resources.domains.times.store.getCurrentDate();
+	}
+
+	public getStore() {
+		return this.resources.locate.locationsPlaces.FARUND.store;
 	}
 }
 
