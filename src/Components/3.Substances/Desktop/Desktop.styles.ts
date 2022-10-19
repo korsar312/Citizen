@@ -33,6 +33,7 @@ class DesktopStyles extends Styles {
 		height: 150,
 		padding: 10,
 		borderTop: `2px solid ${this.variablesColors.getColor({ color: "BLUE", shard: "LIGHT" })}`,
+		overflow: "auto",
 	};
 }
 

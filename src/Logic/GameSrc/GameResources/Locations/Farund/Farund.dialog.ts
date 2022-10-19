@@ -1,38 +1,32 @@
 import { LocationsInterface, LocationsInterface as ILoc } from "../Locations.interface";
-import downtown from "./Images/downtown.jpg";
-import eastWall from "./Images/eastWall.jpg";
-import outskirts from "./Images/outskirts.jpg";
-import temple from "./Images/temple.jpg";
+import koridor from "./Images/Dark_korid.jpg";
+import doore from "./Images/doore.jpg";
+import sel from "./Images/sel.jpg";
+import drink from "./Images/drink.jpeg";
+import surp from "./Images/surp.jpg";
+import switcher from "./Images/switcher.jpg";
+import kitchen from "./Images/kitchen.jpg";
+
 import { FarundInterface } from "./Farund.interface";
 import gameControllers from "../../../GameControllers/GameControllers";
-import modules from "../../../../Modules/Modules";
-import EWordSpeaker = LocationsInterface.EWordSpeaker;
 
 export class FarundDialog implements FarundInterface.IFarundDialog {
 	START(): ILoc.TDialog {
-		const image: ILoc.TEditDialog["image"] = outskirts;
-		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.YOU_LIKE_COMMUNYTY;
+		const image: ILoc.TEditDialog["image"] = koridor;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.START_S;
 		const dialog: ILoc.TDialogLine[] = [
 			{
-				dialogLine: ILoc.EWordDialog.YEAP,
+				dialogLine: ILoc.EWordDialog.GO_NEXT,
 				path: {
 					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.GO_WALK,
+					dialog: FarundInterface.IFarundDialogName.GO_NEXT,
 				},
 			},
 			{
-				dialogLine: ILoc.EWordDialog.NOPE,
+				dialogLine: ILoc.EWordDialog.LIGHT_ON,
 				path: {
 					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.GAME_OVER,
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.SILIENCE,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-					options: { speaker: EWordSpeaker.OH_OKAY },
+					dialog: FarundInterface.IFarundDialogName.LIGHT_ON,
 				},
 			},
 		];
@@ -44,22 +38,15 @@ export class FarundDialog implements FarundInterface.IFarundDialog {
 		};
 	}
 
-	GO_WALK(): ILoc.TDialog {
-		const image: ILoc.TEditDialog["image"] = outskirts;
-		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.GO_WALK;
+	LIGHT_ON(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = switcher;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.LIGHT_ERROR;
 		const dialog: ILoc.TDialogLine[] = [
 			{
-				dialogLine: ILoc.EWordDialog.I_AGREE,
+				dialogLine: ILoc.EWordDialog.GO_NEXT,
 				path: {
 					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.GET_OUT,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.GAME_OVER,
+					dialog: FarundInterface.IFarundDialogName.GO_NEXT,
 				},
 			},
 		];
@@ -71,235 +58,61 @@ export class FarundDialog implements FarundInterface.IFarundDialog {
 		};
 	}
 
-	CHOICES(): ILoc.TDialog {
-		const image: ILoc.TEditDialog["image"] = outskirts;
-		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.CHOICES;
+	GO_NEXT(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = koridor;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.KORIDOR;
 		const dialog: ILoc.TDialogLine[] = [
 			{
-				dialogLine: ILoc.EWordDialog.GO_CHOICE_PLACE,
+				dialogLine: ILoc.EWordDialog.GO_KITCHEN,
 				path: {
 					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICE_PLACE,
+					dialog: FarundInterface.IFarundDialogName.IN_KITCHEN,
+				},
+			},
+			{
+				dialogLine: ILoc.EWordDialog.GO_ROOM,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.IN_ROOM,
+				},
+			},
+		];
+
+		return {
+			image,
+			speaker,
+			dialog,
+		};
+	}
+
+	IN_KITCHEN(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = kitchen;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.KITCHEN;
+		const dialog: ILoc.TDialogLine[] = [
+			{
+				dialogLine: ILoc.EWordDialog.DRINK,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.DRINK,
+				},
+				disable: !!gameControllers.getStore().getTimes(),
+				callback() {
+					gameControllers.getStore().setTimes("1");
+				},
+			},
+			{
+				dialogLine: ILoc.EWordDialog.LISTEN,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.LISTEN,
 				},
 				disable: !!gameControllers.getStore().getPlace(),
 			},
 			{
-				dialogLine: ILoc.EWordDialog.GO_CHOICE_TIMES,
+				dialogLine: ILoc.EWordDialog.GO_NEXT,
 				path: {
 					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICE_TIMES,
-				},
-				disable: !!gameControllers.getStore().getTimes(),
-			},
-			{
-				dialogLine: ILoc.EWordDialog.I_DONT_WALK,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.GAME_OVER,
-				},
-			},
-		];
-
-		return {
-			image,
-			speaker,
-			dialog: dialog.filter((el) => !el.disable),
-		};
-	}
-
-	CHOICE_PLACE(): ILoc.TDialog {
-		const image: ILoc.TEditDialog["image"] = temple;
-		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.CHOICING_PLACE;
-		const dialog: ILoc.TEditDialog["dialog"] = [
-			{
-				dialogLine: ILoc.EWordDialog.CATS,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setPlace(ILoc.EWordDialog.CATS);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.KAFE,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setPlace(ILoc.EWordDialog.KAFE);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.PARK,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setPlace(ILoc.EWordDialog.PARK);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.PARK_ATTRACTIONS,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setPlace(ILoc.EWordDialog.PARK_ATTRACTIONS);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.RESTORAN_OSTANKINO,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setPlace(ILoc.EWordDialog.RESTORAN_OSTANKINO);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.YOUR_DREEM,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.GAME_OVER,
-				},
-			},
-		];
-
-		dialog.forEach((el, i) => {
-			if (dialog[i].path.dialog === FarundInterface.IFarundDialogName.GAME_OVER) return;
-			gameControllers.getStore().getTimes()
-				? (dialog[i].path.dialog = FarundInterface.IFarundDialogName.GAME_PASSED)
-				: (dialog[i].path.options = { speaker: ILoc.EWordSpeaker.AND_TIMES });
-		});
-
-		return {
-			image,
-			speaker,
-			dialog,
-		};
-	}
-
-	CHOICE_TIMES(): ILoc.TDialog {
-		const image: ILoc.TEditDialog["image"] = downtown;
-		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.CHOICING_TIMES;
-		const dialog: ILoc.TEditDialog["dialog"] = [
-			{
-				dialogLine: ILoc.EWordDialog.GO_CURRENT_DAY,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setTimes(ILoc.EWordDialog.GO_CURRENT_DAY);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.PN,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setTimes(ILoc.EWordDialog.PN);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.VT,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setTimes(ILoc.EWordDialog.VT);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.SR,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setTimes(ILoc.EWordDialog.SR);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.CHT,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setTimes(ILoc.EWordDialog.CHT);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.PT,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setTimes(ILoc.EWordDialog.PT);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.SB,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setTimes(ILoc.EWordDialog.SB);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.VS,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.CHOICES,
-				},
-				callback() {
-					gameControllers.getStore().setTimes(ILoc.EWordDialog.VS);
-				},
-			},
-			{
-				dialogLine: ILoc.EWordDialog.I_DONT_WALK,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.GAME_OVER,
-				},
-			},
-		];
-
-		dialog.forEach((el, i) => {
-			if (dialog[i].path.dialog === FarundInterface.IFarundDialogName.GAME_OVER) return;
-			gameControllers.getStore().getPlace()
-				? (dialog[i].path.dialog = FarundInterface.IFarundDialogName.GAME_PASSED)
-				: (dialog[i].path.options = { speaker: ILoc.EWordSpeaker.AND_PLACE });
-		});
-
-		return {
-			image,
-			speaker,
-			dialog,
-		};
-	}
-
-	GAME_OVER(): ILoc.TDialog {
-		const image: ILoc.TEditDialog["image"] = eastWall;
-		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FALED;
-		const dialog = [
-			{
-				dialogLine: ILoc.EWordDialog.NEXT,
-				path: {
-					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.GAME_OVER,
+					dialog: FarundInterface.IFarundDialogName.GO_NEXT,
 				},
 			},
 		];
@@ -311,40 +124,202 @@ export class FarundDialog implements FarundInterface.IFarundDialog {
 		};
 	}
 
-	GAME_PASSED(): ILoc.TDialog {
-		const image: ILoc.TEditDialog["image"] = eastWall;
-		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.YEEEE;
-		const dialog: ILoc.TEditDialog["dialog"] = [
+	DRINK(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = drink;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.DRINK_S;
+		const dialog: ILoc.TDialogLine[] = [
+			{
+				dialogLine: ILoc.EWordDialog.LISTEN,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.LISTEN,
+				},
+				disable: !!gameControllers.getStore().getPlace(),
+			},
+			{
+				dialogLine: ILoc.EWordDialog.GO_NEXT,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.GO_NEXT,
+				},
+			},
+		];
+
+		return {
+			image,
+			speaker,
+			dialog,
+		};
+	}
+
+	LISTEN(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = kitchen;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.LISTENER;
+		const dialog: ILoc.TDialogLine[] = [
+			{
+				dialogLine: ILoc.EWordDialog.BACK,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.IN_KITCHEN,
+				},
+				callback() {
+					gameControllers.getStore().setPlace("1");
+				},
+			},
+		];
+
+		return {
+			image,
+			speaker,
+			dialog,
+		};
+	}
+
+	IN_ROOM(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = doore;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.ROOM;
+		const dialog: ILoc.TDialogLine[] = [
+			{
+				dialogLine: !gameControllers.getStore().getPlace() ? ILoc.EWordDialog.GO_AT_ONCE : ILoc.EWordDialog.GO_SILIENCE,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.GO_AT_ONCE,
+				},
+			},
+			{
+				dialogLine: ILoc.EWordDialog.GO_AND_SAY,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.GO_AND_SAY,
+				},
+				disable: !gameControllers.getStore().getPlace(),
+			},
+			{
+				dialogLine: ILoc.EWordDialog.GO_NEXT,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.GO_NEXT,
+				},
+			},
+		];
+
+		return {
+			image,
+			speaker,
+			dialog,
+		};
+	}
+
+	GO_AT_ONCE(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = surp;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.SURPRIS;
+		const dialog: ILoc.TDialogLine[] = [
+			{
+				dialogLine: ILoc.EWordDialog.SURPRISED,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.VANDERFUL,
+				},
+			},
+		];
+
+		return {
+			image,
+			speaker,
+			dialog,
+		};
+	}
+
+	GO_AND_SAY(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = surp;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.GO_AND_SAY_S;
+		const dialog: ILoc.TDialogLine[] = [
+			{
+				dialogLine: ILoc.EWordDialog.SMILE,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.SMILES,
+				},
+			},
+		];
+
+		return {
+			image,
+			speaker,
+			dialog,
+		};
+	}
+
+	VANDERFUL(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = surp;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.VANDERFUL;
+		const dialog: ILoc.TDialogLine[] = [
+			{
+				dialogLine: ILoc.EWordDialog.GO_DAY_SELEBRITY,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.DAY_SELEBRITY,
+				},
+			},
+		];
+
+		return {
+			image,
+			speaker,
+			dialog,
+		};
+	}
+
+	SMILES(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = surp;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.SMILES;
+		const dialog: ILoc.TDialogLine[] = [
+			{
+				dialogLine: ILoc.EWordDialog.GO_DAY_SELEBRITY,
+				path: {
+					loc: LocationsInterface.ILocationList.FARUND,
+					dialog: FarundInterface.IFarundDialogName.DAY_SELEBRITY,
+				},
+			},
+		];
+
+		return {
+			image,
+			speaker,
+			dialog,
+		};
+	}
+
+	DAY_SELEBRITY(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = sel;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.POZDRAVLENIA;
+		const dialog: ILoc.TDialogLine[] = [
 			{
 				dialogLine: ILoc.EWordDialog.FINAL,
 				path: {
 					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.GAME_PASSED,
-					options: { dialog: [], speaker: ILoc.EWordSpeaker.OVER },
-				},
-				callback() {
-					let tok = `1662190836:AAGFJexo_sQVuUDszhnFMuLhBRPVwT_xuJ4`;
-					let chatId = `-421133281`;
-					let url = `https://api.telegram.org/bot${tok}/sendMessage?chat_id=${chatId}&text=`;
-
-					let message =
-						// @ts-ignore
-						modules.language.service.getText(gameControllers.getStore().getPlace()) +
-						" " +
-						// @ts-ignore
-						modules.language.service.getText(gameControllers.getStore().getTimes());
-
-					let xhttp = new XMLHttpRequest();
-
-					xhttp.open("GET", url + message, true);
-					xhttp.send();
+					dialog: FarundInterface.IFarundDialogName.FINAL,
 				},
 			},
+		];
+
+		return {
+			image,
+			speaker,
+			dialog,
+		};
+	}
+
+	FINAL(): ILoc.TDialog {
+		const image: ILoc.TEditDialog["image"] = sel;
+		const speaker: ILoc.TEditDialog["speaker"] = ILoc.EWordSpeaker.FINAL_S;
+		const dialog: ILoc.TDialogLine[] = [
 			{
-				dialogLine: ILoc.EWordDialog.NOPE,
+				dialogLine: ILoc.EWordDialog.THE_END,
 				path: {
 					loc: LocationsInterface.ILocationList.FARUND,
-					dialog: FarundInterface.IFarundDialogName.GAME_OVER,
+					dialog: FarundInterface.IFarundDialogName.FINAL,
+					options: { dialog: [] },
 				},
 			},
 		];

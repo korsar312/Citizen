@@ -17,12 +17,15 @@ const WidgetDialog: FC<IWidgetDialog> = (props) => {
 
 	return (
 		<WidgetWrappers extStyle={[styles.wrapper, extStyle]}>
-			{speech.map((el, index) => (
-				<Button key={el.dialogLine} onClick={() => setLocate(el)} extStyle={styles.line} hoverColor={{ color: "BLUE", shard: "DARK" }}>
-					<Text text={`${index + 1}.⠀`} />
-					<Text text={el.dialogLine} />
-				</Button>
-			))}
+			{speech.map((el, index) => {
+				if (el.disable) return;
+				return (
+					<Button key={el.dialogLine} onClick={() => setLocate(el)} extStyle={styles.line} hoverColor={{ color: "BLUE", shard: "DARK" }}>
+						<Text text={`${index + 1}.⠀`} />
+						<Text text={el.dialogLine} />
+					</Button>
+				);
+			})}
 		</WidgetWrappers>
 	);
 };

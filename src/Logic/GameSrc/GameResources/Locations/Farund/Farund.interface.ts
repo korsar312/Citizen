@@ -6,12 +6,18 @@ export namespace FarundInterface {
 	 */
 	export enum IFarundDialogName {
 		START = "START",
-		GO_WALK = "GO_WALK",
-		CHOICE_PLACE = "CHOICE_PLACE",
-		CHOICE_TIMES = "CHOICE_TIMES",
-		GAME_OVER = "GAME_OVER",
-		CHOICES = "CHOICES",
-		GAME_PASSED = "GAME_PASSED",
+		LIGHT_ON = "LIGHT_ON",
+		GO_NEXT = "GO_NEXT",
+		IN_KITCHEN = "IN_KITCHEN",
+		DRINK = "DRINK",
+		LISTEN = "LISTEN",
+		IN_ROOM = "IN_ROOM",
+		GO_AT_ONCE = "GO_AT_ONCE",
+		GO_AND_SAY = "GO_AND_SAY",
+		VANDERFUL = "VANDERFUL",
+		SMILES = "SMILES",
+		DAY_SELEBRITY = "DAY_SELEBRITY",
+		FINAL = "FINAL",
 	}
 
 	/**

@@ -12,6 +12,7 @@ class WidgetDialogStyles extends Styles {
 		display: "flex",
 		width: "100%",
 		padding: "20px 10px",
+		textAlign: "left",
 	};
 }
 
