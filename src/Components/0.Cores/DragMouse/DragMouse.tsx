@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useEffect, useState } from "react";
+import React, { FC, ReactElement, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 interface IDragMouse {
@@ -9,18 +9,23 @@ const DragMouse: FC<IDragMouse> = (props) => {
 	const { children } = props;
 
 	const [localMousePos, setLocalMousePos] = useState({ x: 0, y: 0 });
+	const stop = useRef(true);
 
 	useEffect(() => {
-		const handleMouseMove = (event: MouseEvent) => {
-			setLocalMousePos({ x: event.clientX, y: event.clientY });
-		};
-
 		window.addEventListener("mousemove", handleMouseMove);
 
 		return () => {
 			window.removeEventListener("mousemove", handleMouseMove);
 		};
 	}, []);
+
+	const handleMouseMove = (event: MouseEvent) => {
+		if (stop.current) {
+			setLocalMousePos({ x: event.clientX, y: event.clientY });
+			stop.current = false;
+			setTimeout(() => (stop.current = true), 15);
+		}
+	};
 
 	const overlayRootEl = document.querySelector("#root");
 

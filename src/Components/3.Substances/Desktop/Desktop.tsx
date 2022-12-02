@@ -19,6 +19,7 @@ const Desktop: FC<IDesktop> = (props) => {
 			<div css={styles.image}>
 				<img src={image} />
 			</div>
+
 			<ContentWrapper extStyle={styles.speaker} color={{ color: "NEUTRAL", shard: "NEUTRAL_8" }}>
 				<Text text={speakerText} />
 			</ContentWrapper>
