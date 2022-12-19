@@ -6,6 +6,7 @@ import Desktop from "../../Components/3.Substances/Desktop/Desktop";
 import WidgetDialog from "../../Components/3.Substances/Widget/WidgetDialog/WidgetDialog";
 import gameControllers from "../../Logic/GameSrc/GameControllers/GameControllers";
 import { observer } from "mobx-react";
+import DragMouse from "../../Components/0.Cores/DragMouse/DragMouse";
 
 /**
  * Страница игры
@@ -18,6 +19,9 @@ const GamePage = () => {
 		<div css={styles.wrapper}>
 			<div css={styles.top}>
 				<div css={styles.leftPart}>
+					<DragMouse>
+						<div style={{ background: "red" }}>Тест Драг элемента</div>
+					</DragMouse>
 					<WidgetCalendar />
 					<WidgetInformation extStyle={styles.stretching} />
 				</div>

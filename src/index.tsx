@@ -4,5 +4,7 @@ import App from "./App";
 import "./Assets/fonts/Fonts.scss";
 import "./Styles/Normalize.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+export const rootElement = document.querySelector("#root") || document.body;
+const root = ReactDOM.createRoot(rootElement as HTMLElement);
+
 root.render(<App />);

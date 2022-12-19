@@ -1,5 +1,6 @@
-import React, { FC, ReactElement, useEffect, useRef, useState } from "react";
+import React, { FC, ReactElement, useCallback, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { rootElement } from "../../../index";
 
 interface IDragMouse {
 	children: ReactElement;
@@ -8,45 +9,47 @@ interface IDragMouse {
 const DragMouse: FC<IDragMouse> = (props) => {
 	const { children } = props;
 
-	const [localMousePos, setLocalMousePos] = useState({ x: 0, y: 0 });
-	const stop = useRef(true);
+	const dragObj = useRef<HTMLHeadingElement>(null);
 
 	useEffect(() => {
 		window.addEventListener("mousemove", handleMouseMove);
-
 		return () => {
 			window.removeEventListener("mousemove", handleMouseMove);
 		};
 	}, []);
 
-	const handleMouseMove = (event: MouseEvent) => {
-		if (stop.current) {
-			setLocalMousePos({ x: event.clientX, y: event.clientY });
-			stop.current = false;
-			setTimeout(() => (stop.current = true), 15);
+	const handleMouseMove = useCallback((event: MouseEvent) => {
+		if (dragObj.current) {
+			dragObj.current.style.top = `${event.y}px`;
+			dragObj.current.style.left = `${event.x}px`;
 		}
-	};
+	}, []);
 
-	const overlayRootEl = document.querySelector("#root");
-
-	return (
-		overlayRootEl &&
-		createPortal(
+	return createPortal(
+		<div
+			css={{
+				overflow: "hidden",
+				height: "100%",
+				width: "100%",
+				position: "fixed",
+				top: 0,
+				left: 0,
+			}}
+		>
 			<div
-				style={{
+				ref={dragObj}
+				css={{
 					position: "absolute",
-					top: localMousePos.y,
-					left: localMousePos.x,
-					zIndex: 1232,
+					zIndex: 10,
 					pointerEvents: "none",
 					transform: "translate(-50%, -50%)",
 					opacity: 0.8,
 				}}
 			>
 				{children}
-			</div>,
-			overlayRootEl,
-		)
+			</div>
+		</div>,
+		rootElement,
 	);
 };
 
