@@ -10,5 +10,3 @@ export class Domains {
 		this.sound = new SoundsModule();
 	}
 }
-
-export default new Domains();

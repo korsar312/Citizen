@@ -15,10 +15,11 @@ export namespace LanguageInterface {
 	 */
 	export enum ELanguageSimpleWord {
 		EXIT = "EXIT",
+		TEMP_WORD_REMOVE_THIS = "TEMP_WORD_REMOVE_THIS",
 	}
 
 	/**
-	 * Список временных слов
+	 * Список временнЫх слов
 	 */
 	const ELanguageTimesWord = {
 		...TimesInterface.EDayOfTheWeekWord,

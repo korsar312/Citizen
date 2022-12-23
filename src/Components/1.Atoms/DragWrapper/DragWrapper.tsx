@@ -1,11 +1,9 @@
 import React, { FC, Key, ReactElement, useCallback, useEffect, useState } from "react";
-import { ComponentsInterface } from "../../Components.interface";
 import DragMouse from "../../0.Cores/DragMouse/DragMouse";
 
 interface IDragWrapper {
 	children: ReactElement[];
 	changePosition: (old: any) => any;
-	extStyle?: ComponentsInterface.TDeepCSSObject;
 }
 
 type TDragElement = {
@@ -14,13 +12,13 @@ type TDragElement = {
 };
 
 const DragWrapper: FC<IDragWrapper> = (props) => {
-	const { children, changePosition, extStyle } = props;
+	const { children, changePosition } = props;
 
 	const [dragElement, setDragElement] = useState<TDragElement | null>(null);
 
 	useEffect(() => {
 		return () => {
-			dropingElem();
+			droppingElem();
 		};
 	}, []);
 
@@ -64,13 +62,13 @@ const DragWrapper: FC<IDragWrapper> = (props) => {
 		);
 	}
 
-	function dropingElem() {
+	function droppingElem() {
 		setDragElement(null);
 		document.removeEventListener("mouseup", dropElementEmpty);
 	}
 
 	const dropElementEmpty = useCallback(() => {
-		dropingElem();
+		droppingElem();
 	}, [children]);
 
 	function drag(reactElement: ReactElement) {
@@ -99,7 +97,7 @@ const DragWrapper: FC<IDragWrapper> = (props) => {
 			}, []),
 		);
 
-		dropingElem();
+		droppingElem();
 	}
 
 	return (

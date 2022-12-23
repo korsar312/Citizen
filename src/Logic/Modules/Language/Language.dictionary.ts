@@ -1,6 +1,10 @@
 import { LanguageInterface } from "./Language.interface";
 
 export const dictionary: LanguageInterface.TLanguage = {
+	TEMP_WORD_REMOVE_THIS: {
+		EN: "УДАЛИТЬ!!!!!========================================",
+		RU: "УДАЛИТЬ!!!!!========================================",
+	},
 	FARUND_ENTER_NORTHERN_WALL: {
 		EN: "You came to the north wall",
 		RU: "Вы подошли к северной стене",

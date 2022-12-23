@@ -1,6 +1,6 @@
 import { dictionary } from "../Language.dictionary";
 import { LanguageInterface } from "../Language.interface";
-import modules from "../../Modules";
+import SystemController from "../../SystemController/SystemController";
 
 export class LanguageService {
 	private readonly language: LanguageInterface.TLanguage = dictionary;
@@ -10,6 +10,7 @@ export class LanguageService {
 	 * @param wordKey - выбранное предложение
 	 */
 	public getText(wordKey: LanguageInterface.TAllLanguageWord) {
-		return this.language[wordKey][modules.language.store.getCurrentLanguage()];
+		const language = SystemController("language", "store", "getCurrentLanguage");
+		return this.language[wordKey][language];
 	}
 }

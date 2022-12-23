@@ -2,11 +2,11 @@ import React, { FC } from "react";
 import { variablesColorsInterface } from "../../../Styles/Variables/VariablesColors/VariablesColors.interface";
 import styles from "./Text.styles";
 import { LanguageInterface } from "../../../Logic/Modules/Language/Language.interface";
-import modules from "../../../Logic/Modules/Modules";
 import { variablesFontsInterface } from "../../../Styles/Variables/VariablesFonts/VariablesFonts.interface";
 import { observer } from "mobx-react";
 import { ComponentsInterface } from "../../Components.interface";
 import libs from "../../../Logic/Libs/Libs";
+import SystemController from "../../../Logic/Modules/SystemController/SystemController";
 
 interface IText {
 	text: TText;
@@ -31,7 +31,11 @@ const Text: FC<IText> = (props) => {
 	} = props;
 
 	const localization = (word: TText) =>
-		String(word in LanguageInterface.allLanguageWord ? modules.language.service.getText(word as LanguageInterface.TAllLanguageWord) : word);
+		String(
+			word in LanguageInterface.allLanguageWord
+				? SystemController("language", "service", "getText", word as LanguageInterface.TAllLanguageWord)
+				: word,
+		);
 
 	const wordTranslate = (word: TText): string => {
 		const wordTranslate = noLocalization ? String(word) : localization(word);

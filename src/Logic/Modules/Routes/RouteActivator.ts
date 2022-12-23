@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import modules from "../Modules";
+import SystemController from "../SystemController/SystemController";
 
 /**
  * Компонент для реализации программного роутинга
@@ -9,7 +9,7 @@ export const RouteActivator = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		modules.routes.store.setNavigation(navigate);
+		SystemController("routes", "store", "setNavigation", navigate);
 		// eslint-disable-next-line
 	}, []);
 
