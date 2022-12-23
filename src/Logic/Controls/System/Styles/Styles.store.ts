@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx";
-import { SettingInterface } from "./Colors.interface";
+import { StylesInterface } from "./Styles.interface";
 
-export class ColorsStore {
-	private theme: SettingInterface.ETheme = SettingInterface.ETheme.DARK;
+export class StylesStore {
+	private theme: StylesInterface.ETheme = StylesInterface.ETheme.DARK;
 
 	constructor() {
 		makeAutoObservable(this);
@@ -12,7 +12,7 @@ export class ColorsStore {
 	 * Устанавливает выбранную тему
 	 * @param theme - тема
 	 */
-	public setTheme(theme: SettingInterface.ETheme) {
+	public setTheme(theme: StylesInterface.ETheme) {
 		this.theme = theme;
 	}
 
@@ -20,7 +20,7 @@ export class ColorsStore {
 	 * Светлая ли сейчас тема активна
 	 */
 	public isLightTheme() {
-		return this.theme === SettingInterface.ETheme.LIGHT;
+		return this.theme === StylesInterface.ETheme.LIGHT;
 	}
 
 	/**

@@ -1,5 +1,5 @@
-import { TimesInterface } from "../../ControlGame/GameResources/Domains/Times/Times.interface";
-import { LocationsInterface } from "../../ControlGame/GameResources/Locations/Locations.interface";
+import { TimesInterface } from "../../Game/GameResources/Domains/Times/Times.interface";
+import { LocationsInterface } from "../../Game/GameResources/Locations/Locations.interface";
 
 export namespace LanguageInterface {
 	/**

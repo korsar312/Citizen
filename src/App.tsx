@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter } from "react-router-dom";
 import BaseLayout from "./Layouts/BaseLayout/BaseLayout";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-import { RouteActivator } from "./Logic/ControlSystem/Routes/RouteActivator";
+import { RouteActivator } from "./Logic/Controls/System/Routes/RouteActivator";
 
 const App = () => {
 	return (

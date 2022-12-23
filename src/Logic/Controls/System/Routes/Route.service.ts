@@ -1,6 +1,6 @@
 import { generatePath, Params } from "react-router-dom";
-import { RouteInterfaces } from "../Route.interfaces";
-import type { RouteStore } from "../Route.store";
+import { RouteInterfaces } from "./Route.interfaces";
+import type { RouteStore } from "./Route.store";
 
 export class RouteService {
 	private routeStore: RouteStore;

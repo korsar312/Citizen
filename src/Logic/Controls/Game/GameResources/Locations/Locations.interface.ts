@@ -1,4 +1,4 @@
-import { typesUtils } from "../../../Libs/Utils/TypesUtils";
+import { typesUtils } from "../../../../Libs/Utils/TypesUtils";
 import { FarundInterface } from "./Farund/Farund.interface";
 
 export namespace LocationsInterface {

@@ -1,5 +1,5 @@
 import { RouteStore } from "./Route.store";
-import { RouteService } from "./Services/Route.service";
+import { RouteService } from "./Route.service";
 
 export class RouteModule {
 	public store: RouteStore;

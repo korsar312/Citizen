@@ -1,4 +1,4 @@
-export namespace SettingInterface {
+export namespace StylesInterface {
 	/**
 	 * Список цветовых тем
 	 */

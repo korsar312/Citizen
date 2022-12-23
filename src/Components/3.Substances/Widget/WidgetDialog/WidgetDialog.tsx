@@ -4,7 +4,7 @@ import { ComponentsInterface } from "../../../Components.interface";
 import Text from "../../../0.Cores/Text/Text";
 import Button from "../../../1.Atoms/Button/Button";
 import styles from "./WidgetDialog.styles";
-import { LocationsInterface } from "../../../../Logic/ControlGame/GameResources/Locations/Locations.interface";
+import { LocationsInterface } from "../../../../Logic/Controls/Game/GameResources/Locations/Locations.interface";
 
 interface IWidgetDialog {
 	speech: LocationsInterface.TDialogLine[];

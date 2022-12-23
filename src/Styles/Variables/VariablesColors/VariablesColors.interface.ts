@@ -1,4 +1,4 @@
-import { SettingInterface } from "../../../Logic/ControlSystem/Colors/Colors.interface";
+import { StylesInterface } from "../../../Logic/Controls/System/Styles/Styles.interface";
 
 export namespace variablesColorsInterface {
 	/**
@@ -72,7 +72,7 @@ export namespace variablesColorsInterface {
 	 * Тип для цветовых тем
 	 */
 	export type TColor = {
-		[key in SettingInterface.ETheme]: TColorAll;
+		[key in StylesInterface.ETheme]: TColorAll;
 	};
 
 	// я хз как это по нормальному сделать

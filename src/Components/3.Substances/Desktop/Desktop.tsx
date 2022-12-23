@@ -3,9 +3,9 @@ import ContentWrapper from "../../0.Cores/ContentWrapper/ContentWrapper";
 import styles from "./Desktop.styles";
 import { ComponentsInterface } from "../../Components.interface";
 import Text from "../../0.Cores/Text/Text";
-import { LocationsInterface } from "../../../Logic/ControlGame/GameResources/Locations/Locations.interface";
-import SystemController from "../../../Logic/ControlSystem/SystemController";
-import { LanguageInterface } from "../../../Logic/ControlSystem/Language/Language.interface";
+import { LocationsInterface } from "../../../Logic/Controls/Game/GameResources/Locations/Locations.interface";
+import SystemController from "../../../Logic/Controls/System/SystemController";
+import { LanguageInterface } from "../../../Logic/Controls/System/Language/Language.interface";
 
 interface IDesktop {
 	image: any;

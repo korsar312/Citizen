@@ -1,9 +1,9 @@
 import { RouteModule } from "./Routes/Route.module";
 import { LanguageModule } from "./Language/Language.module";
-import { ColorsModule } from "./Colors/Colors.module";
+import { StylesModule } from "./Styles/Styles.module";
 
 type TModules = {
-	style: ColorsModule;
+	style: StylesModule;
 	language: LanguageModule;
 	routes: RouteModule;
 };
@@ -13,7 +13,7 @@ class SystemCreator {
 
 	constructor() {
 		this.modules = {
-			style: new ColorsModule(),
+			style: new StylesModule(),
 			language: new LanguageModule(),
 			routes: new RouteModule(),
 		};

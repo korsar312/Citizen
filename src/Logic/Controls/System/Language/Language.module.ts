@@ -1,4 +1,4 @@
-import { LanguageService } from "./Services/Language.service";
+import { LanguageService } from "./Language.service";
 import { LanguageStore } from "./Language.store";
 
 export class LanguageModule {
@@ -6,7 +6,7 @@ export class LanguageModule {
 	public store: LanguageStore;
 
 	constructor() {
-		this.service = new LanguageService();
 		this.store = new LanguageStore();
+		this.service = new LanguageService(this.store);
 	}
 }
