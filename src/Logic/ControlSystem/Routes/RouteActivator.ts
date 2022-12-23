@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import SystemController from "../SystemController/SystemController";
+import SystemController from "../SystemController";
 
 /**
  * Компонент для реализации программного роутинга

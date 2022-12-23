@@ -1,6 +1,6 @@
 import { variablesColorsInterface } from "./VariablesColors.interface";
 import { VariablesColorsList } from "./VariablesColors.color";
-import SystemController from "../../../Logic/Modules/SystemController/SystemController";
+import SystemController from "../../../Logic/ControlSystem/SystemController";
 
 export class VariablesColors {
 	private readonly color: variablesColorsInterface.TColor = VariablesColorsList;

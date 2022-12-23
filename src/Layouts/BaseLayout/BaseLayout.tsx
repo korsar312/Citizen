@@ -1,6 +1,6 @@
 import React, { Fragment, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
-import { routes } from "../../Logic/Modules/Routes/Routes/routes.config";
+import { routes } from "../../Logic/ControlSystem/Routes/Routes/routes.config";
 import styles from "./BaseLayout.styles";
 
 const BaseLayout = () => {

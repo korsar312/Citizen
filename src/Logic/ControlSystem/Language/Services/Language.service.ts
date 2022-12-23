@@ -1,6 +1,6 @@
 import { dictionary } from "../Language.dictionary";
 import { LanguageInterface } from "../Language.interface";
-import SystemController from "../../SystemController/SystemController";
+import SystemController from "../../SystemController";
 
 export class LanguageService {
 	private readonly language: LanguageInterface.TLanguage = dictionary;

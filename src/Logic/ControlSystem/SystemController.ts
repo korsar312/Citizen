@@ -1,6 +1,6 @@
-import { RouteModule } from "../Routes/Route.module";
-import { LanguageModule } from "../Language/Language.module";
-import { ColorsModule } from "../Colors/Colors.module";
+import { RouteModule } from "./Routes/Route.module";
+import { LanguageModule } from "./Language/Language.module";
+import { ColorsModule } from "./Colors/Colors.module";
 
 type TModules = {
 	style: ColorsModule;

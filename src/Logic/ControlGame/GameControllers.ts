@@ -1,7 +1,7 @@
-import { LocationsInterface } from "../GameResources/Locations/Locations.interface";
-import { SavingModule } from "../Saving/Saving.module";
-import { HeroModule } from "../Hero/Hero.module";
-import { GameResources } from "../GameResources/GameResources";
+import { LocationsInterface } from "./GameResources/Locations/Locations.interface";
+import { SavingModule } from "./Saving/Saving.module";
+import { HeroModule } from "./Hero/Hero.module";
+import { GameResources } from "./GameResources/GameResources";
 
 class GameControllers {
 	private readonly resources: GameResources;

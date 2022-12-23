@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { variablesColorsInterface } from "../../../Styles/Variables/VariablesColors/VariablesColors.interface";
 import styles from "./Text.styles";
-import { LanguageInterface } from "../../../Logic/Modules/Language/Language.interface";
+import { LanguageInterface } from "../../../Logic/ControlSystem/Language/Language.interface";
 import { variablesFontsInterface } from "../../../Styles/Variables/VariablesFonts/VariablesFonts.interface";
 import { observer } from "mobx-react";
 import { ComponentsInterface } from "../../Components.interface";
 import libs from "../../../Logic/Libs/Libs";
-import SystemController from "../../../Logic/Modules/SystemController/SystemController";
+import SystemController from "../../../Logic/ControlSystem/SystemController";
 
 interface IText {
 	text: TText;

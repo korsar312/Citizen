@@ -3,7 +3,7 @@ import styles from "./WidgetCalendar.styles";
 import Day from "../../../2.Molecules/Day/Day";
 import WidgetWrappers from "../../../1.Atoms/Wrappers/WrappersWidget/WrappersWidget";
 import { ComponentsInterface } from "../../../Components.interface";
-import gameControllers from "../../../../Logic/GameSrc/GameControllers/GameControllers";
+import gameControllers from "../../../../Logic/ControlGame/GameControllers";
 
 interface IWidgetCalendar {
 	extStyle?: ComponentsInterface.TDeepCSSObject;

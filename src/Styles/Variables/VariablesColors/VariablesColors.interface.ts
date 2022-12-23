@@ -1,4 +1,4 @@
-import { SettingInterface } from "../../../Logic/Modules/Colors/Colors.interface";
+import { SettingInterface } from "../../../Logic/ControlSystem/Colors/Colors.interface";
 
 export namespace variablesColorsInterface {
 	/**

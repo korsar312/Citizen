@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import styles from "./Day.styles";
 import Text from "../../0.Cores/Text/Text";
-import { TimesInterface } from "../../../Logic/GameSrc/GameResources/Domains/Times/Times.interface";
+import { TimesInterface } from "../../../Logic/ControlGame/GameResources/Domains/Times/Times.interface";
 import ContentWrapper from "../../0.Cores/ContentWrapper/ContentWrapper";
 import { variablesColorsInterface } from "../../../Styles/Variables/VariablesColors/VariablesColors.interface";
 import { ComponentsInterface } from "../../Components.interface";
-import { LanguageInterface } from "../../../Logic/Modules/Language/Language.interface";
+import { LanguageInterface } from "../../../Logic/ControlSystem/Language/Language.interface";
 
 interface IDay {
 	date: TDay;
