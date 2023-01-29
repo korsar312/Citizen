@@ -1,0 +1,16 @@
+export namespace StylesInterface {
+	/**
+	 * Список цветовых тем
+	 */
+	export enum ETheme {
+		"LIGHT" = "LIGHT",
+		"DARK" = "DARK",
+	}
+
+	/**
+	 * Основной навигационный объект
+	 */
+	export type TStyleObj = {
+		theme: ETheme;
+	};
+}

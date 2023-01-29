@@ -1,4 +1,4 @@
-import { StylesInterface } from "../../../Logic/Controls/System/Styles/Styles.interface";
+import { StylesInterface } from "../../../Logic/Core/Modules/Styles/Styles.interface";
 
 export namespace variablesColorsInterface {
 	/**

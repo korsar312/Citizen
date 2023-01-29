@@ -1,6 +1,6 @@
 import { variablesColorsInterface } from "./VariablesColors.interface";
 import { VariablesColorsList } from "./VariablesColors.color";
-import SystemController from "../../../Logic/Controls/System/SystemController";
+import UseCases from "../../../Logic/Core/UseCases/UseCases";
 
 export class VariablesColors {
 	private readonly color: variablesColorsInterface.TColor = VariablesColorsList;
@@ -13,7 +13,7 @@ export class VariablesColors {
 	public getColor(colors: variablesColorsInterface.TColorChoice, opacity: number = 1) {
 		//TODO переделать чтоб ts не орал из за colors.shard
 		//@ts-ignore
-		const choseColor = String(this.color[SystemController("style", "store", "getTheme")][colors.color][colors.shard]);
+		const choseColor = String(this.color[UseCases.interactor("style", "getTheme")][colors.color][colors.shard]);
 		return this.hex2rgba(choseColor, opacity);
 	}
 
