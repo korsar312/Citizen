@@ -1,28 +1,9 @@
-import { StylesInterface } from "../../Styles.interface";
+import { GetTheme } from "./Methods/GetTheme/GetTheme";
+import { SetTheme } from "./Methods/SetTheme/SetTheme";
+import { IsLightTheme } from "./Methods/IsLightTheme/IsLightTheme";
 
 export class StylesDomain {
-	/**
-	 * Светлая ли сейчас тема активна
-	 * @param styleObj - стилевой объект
-	 */
-	public isLightTheme(styleObj: StylesInterface.TStyleObj): boolean {
-		return styleObj.theme === StylesInterface.ETheme.LIGHT;
-	}
-
-	/**
-	 * Устанавливает выбранную тему
-	 * @param styleObj - стилевой объект
-	 * @param theme - тема
-	 */
-	public setTheme(styleObj: StylesInterface.TStyleObj, theme: StylesInterface.ETheme): void {
-		styleObj.theme = theme;
-	}
-
-	/**
-	 * Возвращает выбранную тему
-	 * @param styleObj - стилевой объект
-	 */
-	public getTheme(styleObj: StylesInterface.TStyleObj): StylesInterface.ETheme {
-		return styleObj.theme;
-	}
+	public isLightTheme = IsLightTheme.execute();
+	public setTheme = SetTheme.execute();
+	public getTheme = GetTheme.execute();
 }

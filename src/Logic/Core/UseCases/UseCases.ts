@@ -1,7 +1,5 @@
-import { LanguageUseCase } from "../Modules/Language/UseCase/Language.useCase";
-import { RoutesUseCase } from "../Modules/Routes/UseCase/Routes.useCase";
 import libs from "../../Libs/Libs";
-import { StylesUseCase } from "../Modules/Styles/UseCase/Styles.useCase";
+import { Modules } from "../Modules/Modules";
 
 function interactor<MODULE>(module: MODULE) {
 	return function <TARGET extends keyof MODULE, METHOD extends keyof MODULE[TARGET], ARGS extends MODULE[TARGET][METHOD]>(
@@ -10,23 +8,16 @@ function interactor<MODULE>(module: MODULE) {
 		...args: ARGS extends (...args: infer P) => unknown ? Parameters<ARGS> : unknown[]
 	): ARGS extends (...args: infer P) => any ? ReturnType<ARGS> : unknown {
 		const chosenMethod = module[target][method];
+
+		const what = `запрос на модуль \n${String(target)} - ${String(method)}`;
+		const how = args.length ? `c аргументом: ${String(args)}` : "";
+		console.log(`\n${what} \n${how}\n`);
+
 		return libs.utils.polymorph(chosenMethod, module[target], args);
 	};
 }
 
-class UseCasesModules {
-	language: LanguageUseCase;
-	router: RoutesUseCase;
-	style: StylesUseCase;
-
-	constructor() {
-		this.language = new LanguageUseCase();
-		this.router = new RoutesUseCase();
-		this.style = new StylesUseCase();
-	}
-}
-
-const modules = new UseCasesModules();
+const modules = new Modules();
 
 class UseCases {
 	public get interactor() {

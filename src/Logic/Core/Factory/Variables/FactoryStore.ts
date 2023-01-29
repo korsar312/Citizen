@@ -15,10 +15,17 @@ class StoreProduct<TStore> implements IStore<TStore> {
 		makeAutoObservable(this);
 	}
 
+	/**
+	 * Устанавливает стор
+	 * @param store - стор
+	 */
 	public setStore(store: TStore): void {
 		this.store = store;
 	}
 
+	/**
+	 * Возвращает стор
+	 */
 	public getStore(): TStore {
 		if (this.store === undefined) {
 			throw new Error("Данный стор не определен");

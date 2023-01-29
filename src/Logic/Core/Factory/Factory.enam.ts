@@ -9,6 +9,7 @@ import { RoutesService } from "../Modules/Routes/Implementation/Service/Routes.s
 import { StylesDomain } from "../Modules/Styles/Implementation/Domain/Styles.domain";
 import { StylesService } from "../Modules/Styles/Implementation/Service/Styles.service";
 import { StylesInterface } from "../Modules/Styles/Styles.interface";
+import factory from "./Factory";
 
 export type TFactoryCreators = {
 	LanguageModule: ModulesCreator<LanguageDomain, LanguageService>;
@@ -20,3 +21,14 @@ export type TFactoryCreators = {
 	StyleModule: ModulesCreator<StylesDomain, StylesService>;
 	StyleStore: StoreCreator<StylesInterface.TStyleObj>;
 };
+
+export function registerModules() {
+	factory.register("LanguageModule", new ModulesCreator());
+	factory.register("LanguageStore", new StoreCreator());
+
+	factory.register("RouterModule", new ModulesCreator());
+	factory.register("RouterStore", new StoreCreator());
+
+	factory.register("StyleModule", new ModulesCreator());
+	factory.register("StyleStore", new StoreCreator());
+}

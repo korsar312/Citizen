@@ -1,4 +1,4 @@
-import { RouteInterfaces } from "../../Route.interfaces";
+import { RouteInterfaces } from "../../../../Route.interfaces";
 import { lazy } from "react";
 
 const GamePage = lazy(() => import("View/Pages/GamePage/GamePage"));

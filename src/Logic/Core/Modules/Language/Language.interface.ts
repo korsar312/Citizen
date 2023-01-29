@@ -1,5 +1,7 @@
 import { TimesInterface } from "../../../../TEMP/Game/GameResources/Domains/Times/Times.interface";
 import { LocationsInterface } from "../../../../TEMP/Game/GameResources/Locations/Locations.interface";
+import { LanguageDomain } from "./Implementation/Domain/Language.domain";
+import { LanguageService } from "./Implementation/Service/Language.service";
 
 export namespace LanguageInterface {
 	/**
@@ -65,4 +67,12 @@ export namespace LanguageInterface {
 	export type TLanguageObj = {
 		model: ELanguageType;
 	};
+
+	/**
+	 * Домен и сервис
+	 */
+	export interface IModules {
+		domain: LanguageDomain;
+		service: LanguageService;
+	}
 }

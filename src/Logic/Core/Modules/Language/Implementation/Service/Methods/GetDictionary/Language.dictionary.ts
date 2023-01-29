@@ -1,4 +1,4 @@
-import { LanguageInterface } from "../../Language.interface";
+import { LanguageInterface } from "../../../../Language.interface";
 
 export const dictionary: LanguageInterface.TLanguage = {
 	TEMP_WORD_REMOVE_THIS: {

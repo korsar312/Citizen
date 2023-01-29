@@ -1,6 +1,4 @@
-import { TFactoryCreators } from "./Factory.enam";
-import ModulesCreator from "./Variables/FactoryModules";
-import StoreCreator from "./Variables/FactoryStore";
+import { registerModules, TFactoryCreators } from "./Factory.enam";
 
 type TFac = TFactoryCreators;
 type KTFac = keyof TFac;
@@ -12,29 +10,29 @@ export interface ICreator<CLASS, PROPS> {
 class Factory {
 	private creators: Map<KTFac, TFac[KTFac]> = new Map();
 
+	/**
+	 * Регестрация класса создания экземпляра
+	 * @param key - ключ для класса создания экземпляра
+	 * @param creator - класс создания экземпляра
+	 */
 	public register<T extends KTFac>(key: T, creator: TFac[T]): void {
 		this.creators.set(key, creator);
 	}
 
+	/**
+	 * Возвращает класс создания экземпляра
+	 * @param key - ключ для класса создания экземпляра
+	 */
 	public create<H, T extends KTFac>(key: T): TFac[T] {
 		const creator = this.creators.get(key);
 		if (!creator) {
-			throw new Error(`${key} not registered as a creator.`);
+			throw new Error(`${key} не зарегестрирован.`);
 		}
 		// @ts-ignore
 		return creator;
 	}
 }
 
-const factory = new Factory();
+export default new Factory();
 
-export default factory;
-
-factory.register("LanguageModule", new ModulesCreator());
-factory.register("LanguageStore", new StoreCreator());
-
-factory.register("RouterModule", new ModulesCreator());
-factory.register("RouterStore", new StoreCreator());
-
-factory.register("StyleModule", new ModulesCreator());
-factory.register("StyleStore", new StoreCreator());
+registerModules();
