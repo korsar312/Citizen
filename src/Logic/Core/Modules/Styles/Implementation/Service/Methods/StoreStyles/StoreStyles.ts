@@ -1,5 +1,5 @@
-import factory from "../../../../../../Factory/Factory";
-import { IStore } from "../../../../../../Factory/Variables/FactoryStore";
+import factory from "../../../../../../Helpers/Factory/Factory";
+import { IStore } from "../../../../../../Helpers/Factory/Variables/FactoryStore";
 import { StylesInterface } from "../../../../Styles.interface";
 
 export class StoreStyles {

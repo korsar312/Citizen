@@ -14,6 +14,12 @@ const GamePage = () => {
 	const heroLocate = gameControllers.getHeroLocation();
 	const goNewLocate = gameControllers.goLocations.bind(gameControllers);
 
+	type qwe = {
+		path?: string;
+		breadcrumbName?: string;
+		children?: qwe[];
+	};
+
 	return (
 		<div css={styles.wrapper}>
 			<div css={styles.top}>

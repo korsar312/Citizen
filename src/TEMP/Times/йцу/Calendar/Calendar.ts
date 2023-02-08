@@ -1,7 +1,7 @@
 import { numberDayOfTheWeek } from "./Lists/Day";
 import { numberWeek } from "./Lists/Week";
 import { numberMonth } from "./Lists/Month";
-import { TimesInterface } from "../Times.interface";
+import { TimesInterface } from "../../Times.interface";
 
 /**
  * Список дней по порядку и их наименования

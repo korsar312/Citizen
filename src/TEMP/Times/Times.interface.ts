@@ -1,6 +1,16 @@
-import { typesUtils } from "../../../../../Logic/Libs/Utils/TypesUtils";
+import { typesUtils } from "../../Logic/Libs/Utils/TypesUtils";
+import { TimesDomain } from "./Implementation/Domain/Times.domain";
+import { TimesService } from "./Implementation/Service/Times.service";
 
 export namespace TimesInterface {
+	/**
+	 * Основной стилевой объект
+	 */
+	export type TTimeObj = {
+		currentTimes: TFullDate;
+		dateListsName: null;
+	};
+
 	/**
 	 * Полная дата
 	 * минут в часах || часов в дне || вней в неделе || недель в месяце || месяцев в году
@@ -55,4 +65,12 @@ export namespace TimesInterface {
 	export type TListDays = Record<TimesInterface.TFullDate["day"], TimesInterface.EDayOfTheWeekWord>;
 	export type TListWeeks = Record<TimesInterface.TFullDate["week"], TimesInterface.EWeekWord>;
 	export type TListMonth = Record<TimesInterface.TFullDate["month"], TimesInterface.EMonthWord>;
+
+	/**
+	 * Домен и сервис
+	 */
+	export interface IModules {
+		domain: TimesDomain;
+		service: TimesService;
+	}
 }

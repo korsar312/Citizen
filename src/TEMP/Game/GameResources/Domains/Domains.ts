@@ -1,4 +1,4 @@
-import { TimesModule } from "./Times/Times.module";
+import { TimesModule } from "../../../Times/йцу/Times.module";
 import { SoundsModule } from "./Sounds/Sounds.module";
 
 export class Domains {

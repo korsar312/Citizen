@@ -13,7 +13,7 @@ function interactor<MODULE>(module: MODULE) {
 		const how = args.length ? `c аргументом: ${String(args)}` : "";
 		console.log(`\n${what} \n${how}\n`);
 
-		return libs.utils.polymorph(chosenMethod, module[target], args);
+		return libs.utils.polymorph(chosenMethod, module[target], ...args);
 	};
 }
 

@@ -109,6 +109,10 @@ export const dictionary: LanguageInterface.TLanguage = {
 		EN: "Day of Flaming Dawn",
 		RU: "День Пылающей Зари",
 	},
+	NO_PAGE: {
+		EN: "No Page",
+		RU: "Нет страницы",
+	},
 	EXIT: {
 		EN: "Exit",
 		RU: "Выход",

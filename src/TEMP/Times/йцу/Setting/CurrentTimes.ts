@@ -1,4 +1,4 @@
-import { TimesInterface } from "../Times.interface";
+import { TimesInterface } from "../../Times.interface";
 
 /**
  * Текущее время и дата

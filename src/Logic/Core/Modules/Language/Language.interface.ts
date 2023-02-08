@@ -1,4 +1,4 @@
-import { TimesInterface } from "../../../../TEMP/Game/GameResources/Domains/Times/Times.interface";
+import { TimesInterface } from "../../../../TEMP/Times/Times.interface";
 import { LocationsInterface } from "../../../../TEMP/Game/GameResources/Locations/Locations.interface";
 import { LanguageDomain } from "./Implementation/Domain/Language.domain";
 import { LanguageService } from "./Implementation/Service/Language.service";
@@ -17,6 +17,7 @@ export namespace LanguageInterface {
 	 */
 	export enum ELanguageSimpleWord {
 		EXIT = "EXIT",
+		NO_PAGE = "NO_PAGE",
 		TEMP_WORD_REMOVE_THIS = "TEMP_WORD_REMOVE_THIS",
 	}
 

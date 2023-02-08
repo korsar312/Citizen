@@ -1,4 +1,4 @@
-import { TimesInterface } from "../GameResources/Domains/Times/Times.interface";
+import { TimesInterface } from "../../Times/Times.interface";
 
 export namespace SavingInterface {
 	/**

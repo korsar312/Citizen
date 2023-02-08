@@ -1,4 +1,4 @@
-import { TimesInterface } from "./Times.interface";
+import { TimesInterface } from "../Times.interface";
 import { currentTimes } from "./Setting/CurrentTimes";
 import { makeAutoObservable } from "mobx";
 import { dateLists, lengthDate } from "./Calendar/Calendar";

@@ -1,4 +1,4 @@
-import factory from "../../../Factory/Factory";
+import factory from "../../../Helpers/Factory/Factory";
 import { LanguageDomain } from "./Domain/Language.domain";
 import { LanguageService } from "./Service/Language.service";
 
